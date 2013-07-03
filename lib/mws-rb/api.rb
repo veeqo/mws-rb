@@ -29,7 +29,6 @@ module MWS
         :"AWSAccessKeyId" => @connection.aws_access_key_id,
         :"Action" => @options[:action],
         :"SellerId" => @connection.merchant_id,
-        :"MarketplaceId.id.1" => @connection.marketplace_id,
         :"SignatureMethod" => "HmacSHA256",
         :"SignatureVersion" => 2,
         :"Timestamp" => Time.now.iso8601,
