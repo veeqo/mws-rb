@@ -44,5 +44,9 @@ module MWS
       key = @connection.aws_secret_key
       Base64.encode64(OpenSSL::HMAC.digest(digest, key, canonical)).chomp
     end
+
+    def camelize_hash(hash)
+      hash.map {|key, value| {:"#{key.to_s.camelize}" => value}}.reduce({}, :merge)
+    end
   end
 end
