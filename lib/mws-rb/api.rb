@@ -6,11 +6,13 @@ module MWS
 
     def get(options={})
       @options = options
+      @options[:verb] = :get
       @connection.get(request_uri)
     end
 
     def post(options={})
       @options = options
+      @options[:verb] = :post
       @connection.post(request_uri)
     end
 
