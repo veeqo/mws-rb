@@ -41,7 +41,7 @@ module MWS
 
     def signature
       digest = OpenSSL::Digest::Digest.new('sha256')
-      key = @connection.aws_secret_key
+      key = @connection.aws_secret_access_key
       Base64.encode64(OpenSSL::HMAC.digest(digest, key, canonical)).chomp
     end
 
