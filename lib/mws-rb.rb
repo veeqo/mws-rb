@@ -8,6 +8,7 @@ require_relative 'mws-rb/connection'
 require_relative 'mws-rb/api'
 require_relative 'mws-rb/api/orders'
 require_relative 'mws-rb/api/reports'
+require_relative 'mws-rb/api/products'
 
 module MWS
   def self.new(options={})
@@ -21,5 +22,9 @@ module MWS
 
   def self.reports
     @reports = MWS::Reports.new(@connection, @api)
+  end
+
+  def self.products
+    @products = MWS::Products.new(@connection, @api)
   end
 end
