@@ -36,7 +36,7 @@ module MWS
       }
       query[:"Signature"] = signature if signature
 
-      params = MWS::Helpers.escape_date_time_params(@options[:parameters])
+      params = MWS::Helpers.escape_date_time_params(@options[:parameters] || {})
       params = MWS::Helpers.camelize_hash(params)
       query.merge(params).to_query
     end
