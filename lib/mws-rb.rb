@@ -3,6 +3,7 @@ require 'base64'
 require 'openssl'
 require 'active_support/core_ext'
 
+require_relative 'mws-rb/helpers'
 require_relative 'mws-rb/connection'
 require_relative 'mws-rb/api'
 require_relative 'mws-rb/api/orders'

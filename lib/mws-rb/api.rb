@@ -36,17 +36,15 @@ module MWS
       }
       query[:"Signature"] = signature if signature
 
-      query.merge(@options[:parameters]).to_query
+      params = MWS::Helpers.escape_date_time_params(@options[:parameters])
+      params = MWS::Helpers.camelize_hash(params)
+      query.merge(params).to_query
     end
 
     def signature
       digest = OpenSSL::Digest::Digest.new('sha256')
       key = @connection.aws_secret_access_key
       Base64.encode64(OpenSSL::HMAC.digest(digest, key, canonical)).chomp
-    end
-
-    def camelize_hash(hash)
-      hash.map {|key, value| {:"#{key.to_s.camelize}" => value}}.reduce({}, :merge)
     end
   end
 end
