@@ -19,27 +19,27 @@ module MWS
     @api = MWS::Api.new(@connection)
   end
 
-  def self.orders
-    @orders = MWS::Orders.new(@connection, @api)
+  def self.orders(action, params={})
+    MWS::Orders.call_api(@api, action, params)
   end
 
-  def self.reports
-    @reports = MWS::Reports.new(@connection, @api)
+  def self.reports(action, params={})
+    MWS::Reports.call_api(@api, action, params)
   end
 
-  def self.products
-    @products = MWS::Products.new(@connection, @api)
+  def self.products(action, params={})
+    MWS::Products.call_api(@api, action, params)
   end
 
-  def self.sellers
-    @sellers = MWS::Sellers.new(@connection, @api)
+  def self.sellers(action, params={})
+    MWS::Sellers.call_api(@api, action, params)
   end
 
-  def self.recommendations
-    @recommendations = MWS::Recommendations.new(@connection, @api)
+  def self.recommendations(action, params={})
+    MWS::Recommendations.call_api(@api, action, params)
   end
 
-  def self.fulfillment_inventory
-    @fulfillment_inventory = MWS::FulfillmentInventory.new(@connection, @api)
+  def self.fulfillment_inventory(action, params={})
+    MWS::FulfillmentInventory.call_api(@api, action, params)
   end
 end

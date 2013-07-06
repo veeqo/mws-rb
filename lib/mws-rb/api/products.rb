@@ -1,108 +1,32 @@
 module MWS
-  class Products
-    def initialize(connection, api)
-      @connection = connection
-      @api = api
-    end
+  module Products
 
-    def list_matching_products(params={})
-      @api.get(
+    Actions = %w(ListMatchingProducts GetMatchingProduct GetMatchingProductForId GetCompetitivePricingForSKU
+                 GetCompetitivePricingForASIN GetLowestOfferListingsForSKU GetLowestOfferListingsForASIN
+                 GetMyPriceForSKU GetMyPriceForASIN GetProductCategoriesForSKU GetProductCategoriesForASIN
+                 GetServiceStatus)
+
+    # ListMatchingProducts - Returns a list of products and their attributes, based on a search query.
+    # GetMatchingProduct - Returns a list of products and their attributes, based on a list of ASIN values.
+    # GetMatchingProductForId - Returns a list of products and their attributes, based on a list of ASIN, # GCID, SellerSKU, UPC, EAN, ISBN, and JAN values.
+    # GetCompetitivePricingForSKU - Returns the current competitive price of a product, based on SellerSKU.
+    # GetCompetitivePricingForASIN - Returns the current competitive price of a product, based on ASIN.
+    # GetLowestOfferListingsForSKU - Returns pricing information for the lowest-price active offer listings for a product, based on SellerSKU.
+    # GetLowestOfferListingsForASIN - Returns pricing information for the lowest-price active offer listings for a product, based on ASIN.
+    # GetMyPriceForSKU - Returns pricing information for your own offer listings, based on SellerSKU.
+    # GetMyPriceForASIN - Returns pricing information for your own offer listings, based on ASIN.
+    # GetProductCategoriesForSKU -Returns the parent product categories that a product belongs to, based on SellerSKU.
+    # GetProductCategoriesForASIN - Returns the parent product categories that a product belongs to, based on ASIN.
+    # GetServiceStatus - Returns the operational status of the Products API section.
+    #
+    # More info here http://docs.developer.amazonservices.com/en_US/products/index.html
+
+    def self.call_api(api, action, params={})
+      api.get(
         uri: "/Products/2011-10-01",
-        action: "ListMatchingProducts",
+        action: action.to_s.camelize,
         version: "2011-10-01",
-        parameters: params
-      )
-    end
-
-    def list_matching_products(marketplace_id, asin_list)
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetMatchingProduct",
-        version: "2011-10-01",
-        parameters: {:marketplace_id => marketplace_id}.merge(MWS::Helpers.make_structured_list("ASINList.ASIN.", asin_list))
-      )
-    end
-
-    def get_matching_product_for_id(marketplace_id, id_type, id_list)
-      id_list = MWS::Helpers.make_structured_list("IdList.Id.", id_list)
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetMatchingProductForId",
-        version: "2011-10-01",
-        parameters: {:marketplace_id => marketplace_id, :id_type => id_type}.merge(id_list)
-      )
-    end
-
-    def get_competitive_pricing_for_sku(marketplace_id, seller_sku_list)
-      seller_sku_list = MWS::Helpers.make_structured_list("SellerSKUList.SellerSKU.", seller_sku_list)
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetCompetitivePricingForSKU",
-        version: "2011-10-01",
-        parameters: {:marketplace_id => marketplace_id}.merge(seller_sku_list)
-      )
-    end
-
-    def get_competitive_pricing_for_asin(marketplace_id, asin_list)
-      asin_list = MWS::Helpers.make_structured_list("SellerSKUList.SellerSKU.", asin_list)
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetCompetitivePricingForASIN",
-        version: "2011-10-01",
-        parameters: {:marketplace_id => marketplace_id}.merge(asin_list)
-      )
-    end
-
-    def get_lowest_offer_listing_for_sku(params={})
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetLowestOfferListingsForSKU",
-        version: "2011-10-01",
-        parameters: params
-      )
-    end
-
-    def get_lowest_offer_listing_for_asin(params={})
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetLowestOfferListingsForASIN",
-        version: "2011-10-01",
-        parameters: params
-      )
-    end
-
-    def get_my_price_for_sku(params={})
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetMyPriceForSKU",
-        version: "2011-10-01",
-        parameters: params
-      )
-    end
-
-    def get_product_categories_for_sku(marketplace_id, seller_sku)
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetProductCategoriesForSKU",
-        version: "2011-10-01",
-        parameters: {:marketplace_id => marketplace_id, :"SellerSKU" => seller_sku}
-      )
-    end
-
-    def get_product_categories_for_asin(marketplace_id, asin)
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetProductCategoriesForASIN",
-        version: "2011-10-01",
-        parameters: {:marketplace_id => marketplace_id, :"ASIN" => asin}
-      )
-    end
-
-    def get_service_status
-      @api.get(
-        uri: "/Products/2011-10-01",
-        action: "GetServiceStatus",
-        version: "2011-10-01"
+        params: params
       )
     end
   end

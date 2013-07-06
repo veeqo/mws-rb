@@ -1,62 +1,25 @@
 module MWS
-  class Orders
-    def initialize(connection, api)
-      @connection = connection
-      @api = api
-    end
+  module Orders
 
-    def list_orders(params={})
-      @api.get(
+    Actions = %w(ListOrders ListOrdersByNextToken GetOrder ListOrderItems
+                 ListOrderItemsByNextToken GetServiceStatus)
+
+    # ListOrders - Returns orders created or updated during a time frame that you specify.
+    # ListOrdersByNextToken - Returns the next page of orders using the NextToken parameter.
+    # GetOrder - Returns orders based on the AmazonOrderId values that you specify.
+    # ListOrderItems - Returns order items basedd on the AmazonOrderId that you specify.
+    # ListOrderItemsByNextToken - Returns the next page of order items using the NextToken parameter.
+    # GetServiceStatus - Returns the operational status of the Orders API
+    #
+    # More info here http://docs.developer.amazonservices.com/en_US/orders/index.html
+
+    def self.call_api(api, action, params={})
+      api.get(
         uri: "/Orders/2011-01-01",
-        action: "ListOrders",
+        action: action.to_s.camelize,
         version: "2011-01-01",
-        parameters: params
-      )
-    end
-
-    def list_orders_by_next_token(next_token)
-      @api.get(
-        uri: "/Orders/2011-01-01",
-        action: "ListOrdersByNextToken",
-        version: "2011-01-01",
-        parameters: {:next_token => next_token}
-      )
-    end
-
-    def get_order(amazon_order_ids)
-      @api.get(
-        uri: "/Orders/2011-01-01",
-        action: "GetOrder",
-        version: "2011-01-01",
-        parameters: MWS::Helpers.make_structured_list("AmazonOrderId.Id.", amazon_order_ids)
-      )
-    end
-
-    def list_order_items(amazon_order_ids)
-      @api.get(
-        uri: "/Orders/2011-01-01",
-        action: "ListOrderItems",
-        version: "2011-01-01",
-        parameters: MWS::Helpers.make_structured_list("AmazonOrderId.Id.", amazon_order_ids)
-      )
-    end
-
-    def list_order_items_by_next_token(next_token)
-      @api.get(
-        uri: "/Orders/2011-01-01",
-        action: "ListOrderItemsByNextToken",
-        version: "2011-01-01",
-        parameters: {:next_token => next_token}
-      )
-    end
-
-    def get_service_status
-      @api.get(
-        uri: "/Orders/2011-01-01",
-        action: "GetServiceStatus",
-        version: "2011-01-01"
+        params: params
       )
     end
   end
 end
-

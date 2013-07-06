@@ -11,11 +11,11 @@ module MWS
     end
 
     def get(uri)
-      puts HTTParty.get(uri)
+      HTTParty.get(uri)
     end
 
     def post(uri)
-      puts HTTParty.post(uri)
+      HTTParty.post(uri)
     end
   end
 end

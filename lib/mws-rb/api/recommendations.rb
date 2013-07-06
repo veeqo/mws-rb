@@ -1,34 +1,20 @@
 module MWS
-  class Recommendations
-    def initialize(connection, api)
-      @connection = connection
-      @api = api
-    end
+  module Recommendations
 
-    def get_last_updated_time_for_recommendations(marketplace_id)
-      @api.post(
-        uri: "/Recommendations/2013-04-01",
-        action: "GetLastUpdatedTimeForRecommendations",
-        version: "2013-04-01",
-        parameters: {:marketplace_id => marketplace_id }
-      )
-    end
+    Actions = %w(GetLastUpdatedTimeForRecommendations ListRecommendations ListRecommendationsByNextToken)
 
-    def list_recommendations(params={})
-      @api.post(
-        uri: "/Recommendations/2013-04-01",
-        action: "ListRecommendations",
-        version: "2013-04-01",
-        parameters: params
-      )
-    end
+    #GetLastUpdatedTimeForRecommendations - Checks whether there are active recommendations for each category for the given marketplace, and if there are, returns the time when recommendations were last updated for each category.
+    #ListRecommendations = Returns your active recommendations for a specific category or for all categories for a specific marketplace.
+    #ListRecommendationsByNextToken - Returns the next page of recommendations using the NextToken parameter.
+    #
+    # More info here http://docs.developer.amazonservices.com/en_US/recommendations/index.html
 
-    def list_recommendations_by_next_token(next_token)
-      @api.post(
+    def self.call_api(api, action, params={})
+      api.post(
         uri: "/Recommendations/2013-04-01",
-        action: "ListRecommendationsByNextToken",
+        action: action.to_s.camelize,
         version: "2013-04-01",
-        parameters: {:next_token => next_token}
+        params: params
       )
     end
   end
