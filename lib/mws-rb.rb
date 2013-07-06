@@ -12,6 +12,8 @@ require_relative 'mws-rb/api/products'
 require_relative 'mws-rb/api/sellers'
 require_relative 'mws-rb/api/recommendations'
 require_relative 'mws-rb/api/fulfillment_inventory'
+require_relative 'mws-rb/api/fulfillment_inbound_shipment'
+require_relative 'mws-rb/api/fulfillment_outbound_shipment'
 
 module MWS
   def self.new(options={})
@@ -45,5 +47,9 @@ module MWS
 
   def self.fulfillment_inbound_shipment(action, params={})
     MWS::FulfillmentInboundShipment.call_api(@api, action, params)
+  end
+
+  def self.fulfillment_outbound_shipment(action, params={})
+    MWS::FulfillmentOutboundShipment.call_api(@api, action, params)
   end
 end
