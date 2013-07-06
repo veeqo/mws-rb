@@ -13,7 +13,8 @@ module MWS
     def post(options={})
       @options = options
       @options[:verb] = :post
-      @connection.post(request_uri)
+      request_params = @options[:params].delete(:request)
+      @connection.post(request_uri, request_params)
     end
 
     def request_uri

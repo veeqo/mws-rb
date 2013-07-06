@@ -14,8 +14,8 @@ module MWS
       HTTParty.get(uri)
     end
 
-    def post(uri)
-      HTTParty.post(uri)
+    def post(uri, params={})
+      HTTParty.post(uri, params)
     end
   end
 end
