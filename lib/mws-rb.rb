@@ -42,4 +42,8 @@ module MWS
   def self.fulfillment_inventory(action, params={})
     MWS::FulfillmentInventory.call_api(@api, action, params)
   end
+
+  def self.fulfillment_inbound_shipment(action, params={})
+    MWS::FulfillmentInboundShipment.call_api(@api, action, params)
+  end
 end
