@@ -23,38 +23,38 @@ module MWS
   end
 
   def self.orders(action, params={})
-    MWS::Orders.call_api(@api, action, params)
+    MWS::API::Orders.call_api(@api, action, params)
   end
 
   def self.reports(action, params={})
-    MWS::Reports.call_api(@api, action, params)
+    MWS::API::Reports.call_api(@api, action, params)
   end
 
   def self.products(action, params={})
-    MWS::Products.call_api(@api, action, params)
+    MWS::API::Products.call_api(@api, action, params)
   end
 
   def self.sellers(action, params={})
-    MWS::Sellers.call_api(@api, action, params)
+    MWS::API::Sellers.call_api(@api, action, params)
   end
 
   def self.recommendations(action, params={})
-    MWS::Recommendations.call_api(@api, action, params)
+    MWS::API::Recommendations.call_api(@api, action, params)
   end
 
   def self.fulfillment_inventory(action, params={})
-    MWS::FulfillmentInventory.call_api(@api, action, params)
+    MWS::API::FulfillmentInventory.call_api(@api, action, params)
   end
 
   def self.fulfillment_inbound_shipment(action, params={})
-    MWS::FulfillmentInboundShipment.call_api(@api, action, params)
+    MWS::API::FulfillmentInboundShipment.call_api(@api, action, params)
   end
 
   def self.fulfillment_outbound_shipment(action, params={})
-    MWS::FulfillmentOutboundShipment.call_api(@api, action, params)
+    MWS::API::FulfillmentOutboundShipment.call_api(@api, action, params)
   end
 
   def self.feeds(action, params={})
-    MWS::Feeds.call_api(@api, action, params)
+    MWS::API::Feeds.call_api(@api, action, params)
   end
 end
