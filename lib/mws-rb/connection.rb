@@ -11,39 +11,39 @@ module MWS
 
     # Map APIS
     def feeds
-      MWS::API::Feeds.new(self)
+      @fees ||= MWS::API::Feeds.new(self)
     end
 
     def fulfillment_inbound_shipment
-      MWS::API::FulfillmentInboundShipment.new(self)
+      @fis ||= MWS::API::FulfillmentInboundShipment.new(self)
     end
 
     def fulfillment_inventory
-      MWS::API::FulfillmentInventory.new(self)
+      @fi ||= MWS::API::FulfillmentInventory.new(self)
     end
 
     def fulfillment_outbound_shipment
-      MWS::API::FulfillmentOutboundShipment.new(self)
+      @fos ||= MWS::API::FulfillmentOutboundShipment.new(self)
     end
 
     def orders
-      MWS::API::Orders.new(self)
+      @orders ||= MWS::API::Orders.new(self)
     end
 
     def products
-      MWS::API::Products.new(self)
+      @products ||= MWS::API::Products.new(self)
     end
 
     def recommendations
-      MWS::API::Recommendations.new(self)
+      @recommendations ||= MWS::API::Recommendations.new(self)
     end
 
     def reports
-      MWS::API::Reports.new(self)
+      @reports ||= MWS::API::Reports.new(self)
     end
 
     def sellers
-      MWS::API::Sellers.new(self)
+      @sellers ||= MWS::API::Sellers.new(self)
     end
   end
 end
