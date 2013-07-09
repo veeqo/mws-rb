@@ -51,29 +51,32 @@ All MWS apis are covered in this gem:
 
 You can check on the MWS documentation section all actions and params needed:
 
-- Feeds - http://docs.developer.amazonservices.com/en_US/feeds/index.html
-- Reports - http://docs.developer.amazonservices.com/en_US/reports/index.html
-- Fulfillment Inbound Shipment - http://docs.developer.amazonservices.com/en_US/fba_inbound/index.html
-- Fulfillment Inventory - http://docs.developer.amazonservices.com/en_US/fba_inventory/index.html
-- Fulfillment Outbound Shipment - http://docs.developer.amazonservices.com/en_US/fba_outbound/index.html
-- Orders - http://docs.developer.amazonservices.com/en_US/orders/index.html
-- Products - http://docs.developer.amazonservices.com/en_US/products/index.html
-- Recommendations - http://docs.developer.amazonservices.com/en_US/recommendations/index.html
-- Sellers - http://docs.developer.amazonservices.com/en_US/sellers/index.html
+- http://docs.developer.amazonservices.com/en_US/feeds/index.html
+- http://docs.developer.amazonservices.com/en_US/reports/index.html
+- http://docs.developer.amazonservices.com/en_US/fba_inbound/index.html
+- http://docs.developer.amazonservices.com/en_US/fba_inventory/index.html
+- http://docs.developer.amazonservices.com/en_US/fba_outbound/index.html
+- http://docs.developer.amazonservices.com/en_US/orders/index.html
+- http://docs.developer.amazonservices.com/en_US/products/index.html
+- http://docs.developer.amazonservices.com/en_US/recommendations/index.html
+- http://docs.developer.amazonservices.com/en_US/sellers/index.html
 
 #### Example
 
 Let's say we want to retrieve a list of orders using MWS orders api:
 
-    mws_api.orders.call(:list_orders, "MarketplaceId.Id.1" => "marketplace id",  created_after: Time.new(2013, 1, 1))
+    mws_api.orders.call(
+      :list_orders,
+      "MarketplaceId.Id.1" => "marketplace id",
+      created_after: Time.new(2013, 1, 1)
+    )
 
 #### Testing your keys
 
 Some MWS sections has a "GetServiceStatus" action that can be called without params to retrieve the api status. You can use this action to test your keys.
 
     mws_api.products.call(:get_service_status)
-    => #<HTTParty::Response:0x2e2dea0 parsed_response={"GetServiceStatusResponse"=>{"GetServiceStatusResult"=>{"Status"=>"GREEN", "Timestamp"=>"2013-07-09T10:34:06.674Z"}, "ResponseMetadata"=>{"RequestId"=>"ea5e7b61-fb6a-482d-833c-ac4062133c7b"}}}, @response=#<Net::HTTPOK 200 OK readbody=true>, @headers={"date"=>["Tue, 09 Jul 2013 10:34:06 GMT"], "server"=>["Server"], "x-mws-request-id"=>["ea5e7b61-fb6a-482d-833c-ac4062133c7b"], "x-mws-timestamp"=>["2013-07-09T10:34:06.674Z"], "x-mws-response-context"=>["ra/Ih8Fefp3woGaqQAZezx6ryFhdsVE17xnnTihojFWwrQOMn7B9y4wiQUjUc9/Sh/QjzA58hng="], "content-type"=>["text/xml"], "content-length"=>["383"], "vary"=>["Accept-Encoding,User-Agent"]}>
-    1.9.3-p327 :002 >
+    => "GetServiceStatusResult"=>{"Status"=>"GREEN", "Timestamp"=>"2013-07-09T10:34:06.674Z"}
 
 ## TODO
 
