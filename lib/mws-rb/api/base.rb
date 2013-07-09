@@ -10,7 +10,7 @@ module MWS
 
       def call(action, params={})
         @verb = params.delete(:verb) || @verb
-        request_params = params.delete(:format, :body)
+        request_params = {}
         query = Query.new({
           verb: @verb,
           uri: @uri,
