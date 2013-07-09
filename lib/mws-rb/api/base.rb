@@ -2,7 +2,6 @@ module MWS
   module API
     class Base
       attr_reader :connection, :uri, :version, :verb
-      @verb = :get
 
       def initialize(connection)
         @verb ||= :get
@@ -11,6 +10,7 @@ module MWS
 
       def call(action, params={})
         @verb = params.delete(:verb) || @verb
+        request_params = params.delete(:format, :body)
         query = Query.new({
           verb: @verb,
           uri: @uri,
@@ -28,7 +28,7 @@ module MWS
         when "GET"
           HTTParty.get(query.request_uri)
         when "POST"
-          HTTParty.post(query.request_uri)
+          HTTParty.post(query.request_uri, request_params)
         end
       end
     end
