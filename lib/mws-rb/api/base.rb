@@ -5,8 +5,8 @@ module MWS
       @verb = :get
 
       def initialize(connection)
+        @verb ||= :get
         @connection = connection
-        @verb = :get
       end
 
       def call(action, params={})

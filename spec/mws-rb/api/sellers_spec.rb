@@ -21,4 +21,8 @@ describe MWS::API::Sellers do
   it "should set the right :version" do
     sellers.version.should eq("2011-07-01")
   end
+
+  it "should set the right :version" do
+    sellers.verb.should eq(:post)
+  end
 end
