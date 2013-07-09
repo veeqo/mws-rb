@@ -1,13 +1,16 @@
 module MWS
   module API
     class Base
-      attr_reader :connection, :uri, :version
+      attr_reader :connection, :uri, :version, :verb
+      @verb = :get
 
       def initialize(connection)
         @connection = connection
+        @verb = :get
       end
 
       def call(action, params={})
+        @verb = params.delete(:verb) || @verb
         query = Query.new({
           verb: @verb,
           uri: @uri,
@@ -22,7 +25,7 @@ module MWS
         })
 
         case @verb.to_s.upcase
-        when "GET", ""
+        when "GET"
           HTTParty.get(query.request_uri)
         when "POST"
           HTTParty.post(query.request_uri)

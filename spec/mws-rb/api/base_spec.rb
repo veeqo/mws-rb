@@ -17,8 +17,13 @@ describe MWS::API::Base do
     base.should respond_to(:call)
   end
 
-  it "should respond to :uri and :version" do
+  it "should respond to :uri and :version and :verb" do
     base.should respond_to(:uri)
     base.should respond_to(:version)
+    base.should respond_to(:verb)
+  end
+
+  it "should set :verb to :get as default" do
+    base.verb.should eq(:get)
   end
 end
