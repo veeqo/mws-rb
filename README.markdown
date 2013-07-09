@@ -79,6 +79,7 @@ Some MWS sections has a "GetServiceStatus" action that can be called without par
 
 - Create a better way to use the feeds api, add helpers so the user can easily create the desired xml.
 - Use method_missing to allow calls direct to the api action, e.g: mws_api.orders.list_orders(params).
+- Parse structured list params
 - Complete documentation.
 
 ## LICENSE
