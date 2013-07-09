@@ -8,7 +8,7 @@ module MWS
       end
 
       def call(action, params={})
-        Query.new({
+        query = Query.new({
           verb: @verb,
           uri: @uri,
           host: @connection.host,
@@ -20,6 +20,13 @@ module MWS
           version: @version,
           params: params
         })
+
+        case @verb.to_s.upcase
+        when "GET", ""
+          HTTParty.get(query.request_uri)
+        when "POST"
+          HTTParty.post(query.request_uri)
+        end
       end
     end
   end
