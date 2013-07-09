@@ -2,5 +2,5 @@ source 'http://rubygems.org'
 
 gem 'httparty'
 gem 'active_support'
-gem 'base64'
-gem 'openssl'
+gem 'rspec'
+gem 'i18n'
