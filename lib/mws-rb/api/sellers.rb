@@ -5,7 +5,7 @@ module MWS
         @uri = "/Sellers/2011-07-01"
         @version = "2011-07-01"
         @verb = :post
-        super(connection)
+        super
       end
     end
   end

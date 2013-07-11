@@ -4,7 +4,7 @@ module MWS
       def initialize(connection)
         @uri = "/"
         @version = "2009-01-01"
-        super(connection)
+        super
       end
     end
   end

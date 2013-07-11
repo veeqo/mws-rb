@@ -11,7 +11,7 @@ module MWS
       def initialize(connection)
         @uri = "/Products/2011-10-01"
         @version = "2011-10-01"
-        super(connection)
+        super
       end
     end
   end
