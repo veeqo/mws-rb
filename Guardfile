@@ -3,6 +3,6 @@
 
 guard :rspec do
   watch(%r{^lib/(.+)\.rb$})     { "spec" }
-  watch('spec/*.rb')  { "spec" }
+  watch(%r{^spec/(.+)\.rb$})  { "spec" }
 end
 
