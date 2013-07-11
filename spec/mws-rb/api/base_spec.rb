@@ -26,4 +26,26 @@ describe MWS::API::Base do
   it "should set :verb to :get as default" do
     base.verb.should eq(:get)
   end
+
+  describe "method_missing to call actions" do
+    class TestApi < MWS::API::Base
+      Actions = [:test_action]
+      def initialize(connection)
+        @uri = "/Products/2011-10-01"
+        @version = "2011-10-01"
+        super(connection)
+      end
+    end
+
+    let(:test_api) {TestApi.new(connection)}
+    before(:each) {HTTParty.stub(:get).and_return({})}
+
+    it "should not raise exception if Actions contain the action name" do
+      expect {test_api.test_action}.to_not raise_error
+    end
+
+    it "should raise exception if Actions do not contain the action name" do
+      expect {test_api.action_not_found}.to raise_error
+    end
+  end
 end

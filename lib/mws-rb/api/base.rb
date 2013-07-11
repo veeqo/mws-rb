@@ -36,6 +36,14 @@ module MWS
           HTTParty.post(query.request_uri, request_params)
         end
       end
+
+      def method_missing(name, *args)
+        if self.class::Actions.include?(name)
+          self.call(name, *args)
+        else
+          super
+        end
+      end
     end
   end
 end
