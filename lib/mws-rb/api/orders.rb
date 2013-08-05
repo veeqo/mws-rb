@@ -7,6 +7,7 @@ module MWS
       def initialize(connection)
         @uri = "/Orders/2011-01-01"
         @version = "2011-01-01"
+        @verb = :post
         super
       end
     end

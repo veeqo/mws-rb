@@ -25,12 +25,12 @@ module MWS
     end
 
     def canonical
-      [@verb.to_s.upcase, @host.downcase, @uri, build_query].join("\n")
+      canonical = [@verb.to_s.upcase, @host.downcase, @uri, build_query].join("\n")
     end
 
     def signature
       digest = OpenSSL::Digest::Digest.new('sha256')
-      Base64.encode64(OpenSSL::HMAC.digest(digest, aws_secret_access_key, canonical)).chomp
+      Base64.encode64(OpenSSL::HMAC.digest(digest, aws_secret_access_key, canonical)).strip
     end
 
     def build_query(signature=nil)
