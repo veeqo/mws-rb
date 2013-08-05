@@ -24,7 +24,7 @@ module MWS
           aws_access_key_id: @connection.aws_access_key_id,
           aws_secret_access_key: @connection.aws_secret_access_key,
           seller_id: @connection.seller_id,
-          action: action.to_s.camelize,
+          action: action.to_s.split("_").map {|s| s.slice(0,1).capitalize + s.slice(1..-1)}.join(""),
           version: @version,
           params: params
         })
