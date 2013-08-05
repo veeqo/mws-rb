@@ -1,6 +1,9 @@
 mws-rb
 ========
 
+## Before Staring
+For some weird reason, the gem only works on ruby 1.9.3-p237, I'm working to fix it. Just a warning for now.
+
 ## What?
 mws-rb is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API. It exposes the entire MWS api in a more friendly way.
 
