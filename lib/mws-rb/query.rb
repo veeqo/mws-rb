@@ -47,7 +47,9 @@ module MWS
 
       params = Helpers.camelize_keys(@params || {})
       query.merge!(params)
-      Helpers.escape_date_time_params(query).to_query
+
+      # Sort hash in natural-byte order
+      Hash[Helpers.escape_date_time_params(query).sort].to_query
     end
 
     module Helpers
