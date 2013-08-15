@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_development_dependency "ephemeral_response"
 
-  s.add_runtime_dependency "httparty"
-  s.add_runtime_dependency "active_support"
+  s.add_dependency "httparty"
+  s.add_dependency   'activesupport', ['>= 3.0', '< 4.1']
 end
