@@ -22,4 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "ephemeral_response"
 
   s.add_runtime_dependency "httparty"
+  s.add_runtime_dependency "active_support"
 end
