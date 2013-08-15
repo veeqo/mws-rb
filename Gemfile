@@ -2,8 +2,10 @@ source 'http://rubygems.org'
 
 gem 'httparty'
 gem 'active_support'
-gem 'rspec'
 gem 'i18n'
 
-gem 'guard'
-gem 'guard-rspec'
+group :development do
+  gem 'rspec'
+  gem 'guard'
+  gem 'guard-rspec'
+end
