@@ -89,5 +89,22 @@ describe MWS::Query do
         subject.camelize_keys(key: {key: "value"}).should eq("Key" => {"Key" => "value"})
       end
     end
+
+    describe "make_structured_lists" do
+      it "should return a new structured list" do
+        structured_list = subject.make_structured_lists(ids_list: {label: "Id.id", values: [1,2]})
+        structured_list.should eq("Id.id.1" => 1, "Id.id.2" => 2)
+      end
+
+      it "should return the same hash if there's no list params" do
+        structured_list = subject.make_structured_lists(test: "test")
+        structured_list.should eq(test: "test")
+      end
+
+      it "should return a hash with structured lists and normal values" do
+        structured_list = subject.make_structured_lists(test: "test", id_list: {label: "Id.id", values: [1]})
+        structured_list.should eq(test: "test", "Id.id.1" => 1)
+      end
+    end
   end
 end

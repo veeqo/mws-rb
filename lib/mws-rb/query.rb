@@ -46,6 +46,7 @@ module MWS
       query["Signature"] = signature if signature
 
       params = Helpers.camelize_keys(@params || {})
+      params = Helpers.make_structured_lists(params)
       query.merge!(params)
 
       # Sort hash in natural-byte order
@@ -73,6 +74,18 @@ module MWS
             {key.to_s.camelize => camelize_keys(value)}
           else
             {key.to_s.camelize => value}
+          end
+        end.reduce({}, :merge)
+      end
+
+      def self.make_structured_lists(params={})
+        params.map do |key, value|
+          if key.to_s.end_with?("list")
+            value[:values].each_with_index.map do |item, index|
+              {"#{value[:label]}.#{index + 1}" => item}
+            end.reduce({}, :merge)
+          else
+            {key => value}
           end
         end.reduce({}, :merge)
       end
