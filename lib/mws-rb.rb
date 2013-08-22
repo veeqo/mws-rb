@@ -1,7 +1,9 @@
 require 'httparty'
 require 'base64'
 require 'openssl'
+require 'open-uri'
 require 'active_support/core_ext'
+require 'builder'
 
 require_relative 'mws-rb/query'
 require_relative 'mws-rb/connection'

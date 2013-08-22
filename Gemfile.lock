@@ -4,6 +4,7 @@ GEM
     active_support (3.0.0)
       activesupport (= 3.0.0)
     activesupport (3.0.0)
+    builder (3.2.2)
     coderay (1.0.9)
     diff-lcs (1.2.4)
     ffi (1.9.0)
@@ -54,6 +55,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_support
+  builder
   guard
   guard-rspec
   httparty

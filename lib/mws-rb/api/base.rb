@@ -11,10 +11,9 @@ module MWS
       def call(action, params={})
         @verb = params.delete(:verb) || @verb
 
-        #extract body for feeds api requests
-        request_params = {}
-        request_params.merge!(params.delete(:format)) if params[:format]
-        request_params.merge!(params.delete(:feed_content)) if params[:feed_content]
+        #extract request_params for feeds api requests
+        request_params = params[:request_params] || {}
+        params = params.except(:request_params)
 
         query = Query.new({
           verb: @verb,
