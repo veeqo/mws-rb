@@ -14,14 +14,13 @@ module MWS
       def submit_feed(params={})
         xml_envelope = build_envelope(params)
         params = params.except(:merchant_id, :message_type, :message)
-        body = {"FeedContent" => URI::encode(xml_envelope)}
         call(:submit_feed, params.merge!(
           request_params: {
             format: "xml",
             headers: {
-              "Content-MD5" => Digest::MD5.base64digest(body.to_query)
+              "Content-MD5" => Digest::MD5.base64digest(xml_envelope)
             },
-            body: body
+            body: xml_envelope
           }
         ))
       end
