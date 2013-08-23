@@ -29,18 +29,13 @@ module MWS
         xml = Builder::XmlMarkup.new(indent: 2)
         xml.instruct!
 
-        envelope_hash = {
-          "xmlns:xsi" => "http://www.w3.org/2001/XMLSchema-instance",
-          "xsi:noNamespaceSchemaLocation" => "amzn-envelope.xsd"
-        }
-
-        xml.AmazonEnvelope  envelope_hash do
+        xml.AmazonEnvelope do
           xml.Header do
-            xml.DocumentVersion = "1.01"
-            xml.MerchantIdentifier = params[:merchant_id]
+            xml.DocumentVersion "1.01"
+            xml.MerchantIdentifier params[:merchant_id]
           end
 
-          xml.MessageType = params[:message_type].to_s.camelize
+          xml.MessageType params[:message_type].to_s.camelize
           xml.PurgeAndReplace = params[:purge_and_replace] || false
 
           xml << params[:message].to_xml(skip_instruct: true, root: "Message") 
