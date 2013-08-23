@@ -16,6 +16,7 @@ require_relative 'mws-rb/api/fulfillment_inventory'
 require_relative 'mws-rb/api/fulfillment_inbound_shipment'
 require_relative 'mws-rb/api/fulfillment_outbound_shipment'
 require_relative 'mws-rb/api/feeds'
+require_relative 'mws-rb/api/feeds/envelope'
 
 module MWS
   def self.new(options={})

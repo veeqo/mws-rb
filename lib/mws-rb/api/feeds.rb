@@ -1,7 +1,7 @@
 module MWS
   module API
     class Feeds < Base
-      Actions = [:submit_feed, :get_feed_submission_list, :get_feed_submission_list_by_next_token,
+      Actions = [:get_feed_submission_list, :get_feed_submission_list_by_next_token,
                  :get_feed_submission_count, :cancel_feed_submissions, :get_feed_submission_result ]
 
       def initialize(connection)
@@ -12,35 +12,17 @@ module MWS
       end
 
       def submit_feed(params={})
-        xml_envelope = build_envelope(params)
+        xml_envelope = Envelope.new(params)
         params = params.except(:merchant_id, :message_type, :message)
         call(:submit_feed, params.merge!(
           request_params: {
             format: "xml",
             headers: {
-              "Content-MD5" => Digest::MD5.base64digest(xml_envelope)
+              "Content-MD5" => xml_envelope.md5
             },
-            body: xml_envelope
+            body: xml_envelope.to_s
           }
         ))
-      end
-
-      def build_envelope(params={})
-        xml = Builder::XmlMarkup.new(indent: 2)
-        xml.instruct!
-
-        xml.AmazonEnvelope do
-          xml.Header do
-            xml.DocumentVersion "1.01"
-            xml.MerchantIdentifier params[:merchant_id]
-          end
-
-          xml.MessageType params[:message_type].to_s.camelize
-          xml.PurgeAndReplace = params[:purge_and_replace] || false
-
-          xml << params[:message].to_xml(skip_instruct: true, root: "Message") 
-        end
-        xml.target!
       end
     end
   end
