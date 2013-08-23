@@ -13,15 +13,15 @@ class MWS::API::Feeds::Envelope
   end
 
   def md5
-    Digest::MD5.base64digest(@envelope)
+    Digest::MD5.base64digest(self)
   end
 
   def to_str
-    @envelope
+    @envelope.target!
   end
 
   def to_s
-    @envelope
+    @envelope.target!
   end
 
   private
@@ -40,6 +40,6 @@ class MWS::API::Feeds::Envelope
 
       xml << params[:message].to_xml(skip_instruct: true, root: "Message") 
     end
-    xml.target!
+    xml
   end
 end
