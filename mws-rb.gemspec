@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "ephemeral_response"
 
   s.add_dependency "httparty"
+  s.add_dependency "nokogiri"
   s.add_dependency   'activesupport', ['>= 3.0', '< 4.1']
 end

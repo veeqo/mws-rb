@@ -28,8 +28,11 @@ GEM
       rb-kqueue (>= 0.2)
     lumberjack (1.0.4)
     method_source (0.8.2)
+    mini_portile (0.5.1)
     multi_json (1.7.9)
     multi_xml (0.5.5)
+    nokogiri (1.6.0)
+      mini_portile (~> 0.5.0)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -60,4 +63,5 @@ DEPENDENCIES
   guard-rspec
   httparty
   i18n
+  nokogiri
   rspec

@@ -5,11 +5,14 @@ class MWS::API::Feeds::Envelope
   end
 
   def valid?
-    true
+    self.errors.count == 0
   end
 
   def validate!
-    raise "Invalid xml" unless valid?
+    unless valid?
+      puts self
+      raise "Invalid XML:\n" + self.errors.join("\n")
+    end
   end
 
   def md5
@@ -24,6 +27,14 @@ class MWS::API::Feeds::Envelope
     @envelope.target!
   end
 
+  def xsd
+    Nokogiri::XML::Schema(File.open(File.join(File.dirname(__FILE__),"xsd/amzn-envelope.xsd")))
+  end
+
+  def errors
+    @errors ||= xsd.validate(Nokogiri::XML(self))
+  end
+
   private
   def build_envelope(params={})
     xml = Builder::XmlMarkup.new(indent: 2)
@@ -36,7 +47,7 @@ class MWS::API::Feeds::Envelope
       end
 
       xml.MessageType params[:message_type].to_s.camelize
-      xml.PurgeAndReplace = params[:purge_and_replace] || false
+      xml.PurgeAndReplace params[:purge_and_replace] || false
 
       xml << params[:message].to_xml(skip_instruct: true, root: "Message") 
     end

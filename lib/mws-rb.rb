@@ -3,6 +3,7 @@ require 'base64'
 require 'openssl'
 require 'active_support/core_ext'
 require 'builder'
+require 'nokogiri'
 
 require_relative 'mws-rb/query'
 require_relative 'mws-rb/connection'

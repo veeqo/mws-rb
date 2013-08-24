@@ -13,7 +13,7 @@ module MWS
 
       def submit_feed(params={})
         xml_envelope = Envelope.new(params)
-        params = params.except(:merchant_id, :message_type, :message)
+        params = params.except(:merchant_id, :message_type, :message, :skip_schema_validation)
         call(:submit_feed, params.merge!(
           request_params: {
             format: "xml",
