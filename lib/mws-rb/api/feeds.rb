@@ -12,7 +12,7 @@ module MWS
       end
 
       def submit_feed(params={})
-        xml_envelope = Envelope.new(params)
+        xml_envelope = Envelope.new(params.merge!(merchant_id: self.connection.seller_id))
         params = params.except(:merchant_id, :message_type, :message, :skip_schema_validation)
         call(:submit_feed, params.merge!(
           request_params: {
