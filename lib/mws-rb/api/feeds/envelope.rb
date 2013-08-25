@@ -20,11 +20,12 @@ class MWS::API::Feeds::Envelope
   end
 
   def to_str
-    @envelope.target!
+    to_s
   end
 
   def to_s
-    @envelope.target!
+    result = @envelope.target!.gsub('<Items type="array">', "")
+    result.gsub!('</Items>', "")
   end
 
   def xsd
@@ -37,7 +38,7 @@ class MWS::API::Feeds::Envelope
 
   private
   def build_envelope(params={})
-    xml = Builder::XmlMarkup.new(indent: 2)
+    xml = Builder::XmlMarkup.new
     xml.instruct!
 
     xml.AmazonEnvelope do
