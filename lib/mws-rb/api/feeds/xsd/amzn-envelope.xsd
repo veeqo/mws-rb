@@ -16,6 +16,8 @@
 	<xsd:include schemaLocation="Inventory.xsd"/>
 	<xsd:include schemaLocation="OrderAcknowledgement.xsd"/>
 	<xsd:include schemaLocation="OrderAdjustment.xsd"/>
+  <xsd:include schemaLocation="OrderFulfillment.xsd"/>
+
 	
 	<xsd:include schemaLocation="Override.xsd"/>
 	<xsd:include schemaLocation="ProcessingReport.xsd"/>
@@ -32,6 +34,7 @@
 							<xsd:enumeration value="Inventory"/>
 							<xsd:enumeration value="OrderAcknowledgement"/>
 							<xsd:enumeration value="OrderAdjustment"/>
+              <xsd:enumeration value="OrderFulfillment"/>
 							<xsd:enumeration value="Override"/>
 							<xsd:enumeration value="ProcessingReport"/>
 							<xsd:enumeration value="ProductImage"/>
@@ -69,6 +72,7 @@
 								<xsd:element ref="Inventory"/>
 								<xsd:element ref="OrderAcknowledgement"/>
 								<xsd:element ref="OrderAdjustment"/>
+                <xsd:element ref="OrderFulfillment"/>
 								<xsd:element ref="Override"/>
 								<xsd:element ref="ProcessingReport"/>
 								<xsd:element ref="ProductImage"/>
