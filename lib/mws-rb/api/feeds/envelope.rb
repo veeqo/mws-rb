@@ -1,8 +1,7 @@
 class MWS::API::Feeds::Envelope
   def initialize(params={})
     @envelope = build_envelope(params)
-    accepted_validations = %w(OrderAcknowledgement OrderFulfillment)
-    validate! unless params[:skip_schema_validation] == true && !accepted_validations.include?(params[:message_type].to_s.camelize)
+    validate! unless params[:skip_schema_validation] == true
   end
 
   def valid?
