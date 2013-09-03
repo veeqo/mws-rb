@@ -17,11 +17,7 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
-  # specify any dependencies here; for example:
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "ephemeral_response"
-
-  s.add_dependency "httparty"
-  s.add_dependency "nokogiri"
-  s.add_dependency   'activesupport', ['>= 3.0', '< 4.1']
+  s.add_dependency 'httparty',      '~> 0.11.0'
+  s.add_dependency 'nokogiri',      '~> 1.5.0'
+  s.add_dependency 'activesupport', '~> 3.0'
 end
