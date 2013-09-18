@@ -7,6 +7,10 @@ module MWS
       @aws_access_key_id = options[:aws_access_key_id]
       @aws_secret_access_key = options[:aws_secret_access_key]
       @seller_id = options[:seller_id]
+      
+      if @aws_access_key_id.to_s.empty? || @aws_secret_access_key.to_s.empty? || @seller_id.to_s.empty?
+        raise(ArgumentError, "You must provide :aws_access_key_id, :aws_secret_access_key and :seller_id")
+      end
     end
 
     # Map APIS

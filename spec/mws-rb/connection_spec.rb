@@ -1,6 +1,13 @@
 require 'spec_helper'
 
 describe MWS::Connection do
+
+  let(:subject) {MWS::Connection.new({
+    aws_access_key_id: "access key",
+    aws_secret_access_key: "secret key",
+    seller_id: "seller id"
+  })}
+
   it "should have a default host" do
     subject.host.should eq("mws.amazonservices.com")
   end
@@ -40,6 +47,12 @@ describe MWS::Connection do
 
     it "should return Sellers when calling .sellers" do
       subject.sellers.instance_of?(MWS::API::Sellers).should == true
+    end
+  end
+
+  describe "Validations" do
+    it "should raise argument error if key, secret or seller_id is not provided" do
+      expect {MWS::Connection.new}.to raise_error(ArgumentError)
     end
   end
 end
