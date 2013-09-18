@@ -17,7 +17,12 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
+  s.add_development_dependency "rspec"
+  s.add_development_dependency "guard"
+  s.add_development_dependency "guard-rspec"
+
   s.add_dependency 'httparty',      '~> 0.11.0'
   s.add_dependency 'nokogiri',      '~> 1.5.0'
   s.add_dependency 'activesupport', '~> 3.0'
+  s.add_dependency 'builder', '~> 3.2.2'
 end
