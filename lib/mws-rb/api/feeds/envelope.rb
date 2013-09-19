@@ -10,7 +10,6 @@ class MWS::API::Feeds::Envelope
 
   def validate!
     unless valid?
-      puts self
       raise "Invalid XML:\n" + self.errors.join("\n")
     end
   end
@@ -24,8 +23,10 @@ class MWS::API::Feeds::Envelope
   end
 
   def to_s
-    result = @envelope.target!.gsub('<Items type="array">', "")
+    result = @envelope.target!
+    result.gsub!('<Items type="array">', "")
     result.gsub!('</Items>', "")
+    result
   end
 
   def xsd
