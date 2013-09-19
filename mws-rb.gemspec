@@ -24,5 +24,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'httparty',      '~> 0.11.0'
   s.add_dependency 'nokogiri',      '~> 1.5.0'
   s.add_dependency 'activesupport', '~> 3.0'
-  s.add_dependency 'builder', '~> 3.2.2'
+  s.add_dependency 'builder'
 end

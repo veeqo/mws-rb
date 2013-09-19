@@ -3,7 +3,7 @@ PATH
   specs:
     mws-rb (0.0.1)
       activesupport (~> 3.0)
-      builder (~> 3.2.2)
+      builder
       httparty (~> 0.11.0)
       nokogiri (~> 1.5.0)
 
