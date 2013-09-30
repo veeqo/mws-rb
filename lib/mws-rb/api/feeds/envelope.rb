@@ -26,6 +26,8 @@ class MWS::API::Feeds::Envelope
     result = @envelope.target!
     result.gsub!('<Items type="array">', "")
     result.gsub!('</Items>', "")
+    result.gsub!('<Inventories type="array">', "")
+    result.gsub!('</Inventories>', "")
     result
   end
 
