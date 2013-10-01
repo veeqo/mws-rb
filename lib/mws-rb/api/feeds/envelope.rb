@@ -53,7 +53,8 @@ class MWS::API::Feeds::Envelope
       xml.MessageType params[:message_type].to_s.camelize
       xml.PurgeAndReplace params[:purge_and_replace] || false
 
-      xml << params[:message].to_xml(skip_instruct: true, root: "Message") 
+      xml << params[:message].to_xml(skip_instruct: true, root: "Message") if params[:message]
+      xml << {"Messages" => params[:messages]}.to_xml(skip_instruct: true) if params[:messages]
     end
     xml
   end
