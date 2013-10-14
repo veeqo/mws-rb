@@ -10,7 +10,7 @@ describe MWS::Query do
     action: "ListOrders",
     seller_id: "Seller ID",
     version: "2010-01-01",
-    timestamp: Time.new(2013, 01, 01)
+    timestamp: Time.new(2013, 01, 01).utc.iso8601
   }}
 
   let(:query) {MWS::Query.new(query_params)}
@@ -31,7 +31,7 @@ describe MWS::Query do
 
   describe "Build query" do
     it "should build a simple query" do
-      generated_query = "AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01"
+      generated_query = "AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T08%3A00%3A00Z&Version=2010-01-01"
       query.build_query.should eq(generated_query)
     end
 
@@ -47,20 +47,20 @@ describe MWS::Query do
 
   describe "canonical string" do
     it "should generate a canonical string" do
-      canonical = "GET\nmws-eu.amazonservices.com\n/\nAWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01"
+      canonical = "GET\nmws-eu.amazonservices.com\n/\nAWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T08%3A00%3A00Z&Version=2010-01-01"
       query.canonical.should eq(canonical)
     end
   end
 
   describe "signature" do
     it "should generate a valid signature" do
-      query.signature.should eq("7XZO1dSv7BHElkee33Rt7L5PNFiBET13pg3pOWKeoo0=")
+      query.signature.should eq("j4BuhJrd2YQoGEDxH/7iW9LletvQp653ODk8QcoyEjc=")
     end
   end
 
   describe "request_uri" do
     it "should generate a valid request uri" do
-      request_uri = "https://mws-eu.amazonservices.com/?AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&Signature=7XZO1dSv7BHElkee33Rt7L5PNFiBET13pg3pOWKeoo0%3D&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01"
+      request_uri = "https://mws-eu.amazonservices.com/?AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&Signature=j4BuhJrd2YQoGEDxH%2F7iW9LletvQp653ODk8QcoyEjc%3D&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T08%3A00%3A00Z&Version=2010-01-01"
       query.request_uri.should eq(request_uri)
     end
   end
