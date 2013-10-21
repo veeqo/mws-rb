@@ -10,7 +10,7 @@ describe MWS::Query do
     action: "ListOrders",
     seller_id: "Seller ID",
     version: "2010-01-01",
-    timestamp: Time.new(2013, 01, 01)
+    timestamp: "2013-01-01T00:00:00-02:00"
   }}
 
   let(:query) {MWS::Query.new(query_params)}
