@@ -20,7 +20,31 @@ require_relative 'mws-rb/api/feeds'
 require_relative 'mws-rb/api/feeds/envelope'
 
 module MWS
+  @@aws_access_key_id = nil
+  @@aws_secret_access_key = nil
+
+  def self.aws_access_key_id=(key_id)
+    @@aws_access_key_id = key_id
+  end
+
+  def self.aws_access_key_id
+    @@aws_access_key_id
+  end
+
+  def self.aws_secret_access_key=(secret_key)
+    @@aws_secret_access_key =  secret_key
+  end
+
+  def self.aws_secret_access_key
+    @@aws_secret_access_key
+  end
+
   def self.new(options={})
     @connection = MWS::Connection.new(options)
+  end
+
+  # Allow using using a global key and secret
+  def self.config
+    yield self
   end
 end
