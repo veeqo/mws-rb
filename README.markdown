@@ -1,14 +1,11 @@
 mws-rb
 ========
 
-## What?
-mws-rb is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API. It exposes the entire MWS api in a more friendly way.
-
-## How?
+This gem is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API. It was extracted from http://veeqo.com
 
 #### Installation
 
-Using with a Gemfile (mostly rails projects):
+Using with a Gemfile:
 
     gem 'mws-rb'
     bundle install
@@ -30,22 +27,26 @@ Using in a simple ruby file:
 #### Using
 
 To access the apis you can use:
+     mws_api._api_name_._action_to_calll(params={})
 
-        mws_api._api_name_.call(:action_to_be_called, params={})
+Let's say we want to retrieve a list of orders using MWS orders api:
 
-The :call method exposes the API receiving an action_name and a hash of params.
+    mws_api.orders.list_orders(
+      "MarketplaceId.Id.1" => "marketplace id",
+      created_after: Time.new(2013, 1, 1)
+    )
 
-All MWS apis are covered in this gem:
+Here is a list of all available APIS:
 
-        mws_api.feeds.call(:action_to_be_called, params={})
-        mws_api.orders.call(:action_to_be_called, params={})
-        mws_api.reports.call(:action_to_be_called, params={})
-        mws_api.products.call(:action_to_be_called, params={})
-        mws_api.sellers.call(:action_to_be_called, params={})
-        mws_api.recommendations.call(:action_to_be_called, params={})
-        mws_api.fulfillment_inventory.call(:action_to_be_called, params={})
-        mws_api.fulfillment_inbound_shipment.call(:action_to_be_called, params={})
-        mws_api.fulfillment_outbound_shipment.call(:action_to_be_called, params={})
+        mws_api.feeds
+        mws_api.orders
+        mws_api.reports
+        mws_api.products
+        mws_api.sellers
+        mws_api.recommendations
+        mws_api.fulfillment_inventory
+        mws_api.fulfillment_inbound_shipment
+        mws_api.fulfillment_outbound_shipment
 
 #### API docs/actions/params
 
@@ -61,28 +62,8 @@ You can check on the MWS documentation section all actions and params needed:
 - http://docs.developer.amazonservices.com/en_US/recommendations/index.html
 - http://docs.developer.amazonservices.com/en_US/sellers/index.html
 
-#### Example
-
-Let's say we want to retrieve a list of orders using MWS orders api:
-
-    mws_api.orders.call(
-      :list_orders,
-      "MarketplaceId.Id.1" => "marketplace id",
-      created_after: Time.new(2013, 1, 1)
-    )
-
-#### Testing your keys
-
-Some MWS sections has a "GetServiceStatus" action that can be called without params to retrieve the api status. You can use this action to test your keys.
-
-    mws_api.products.call(:get_service_status)
-    => "GetServiceStatusResult"=>{"Status"=>"GREEN", "Timestamp"=>"2013-07-09T10:34:06.674Z"}
-
 ## TODO
 
-- Create a better way to use the feeds api, add helpers so the user can easily create the desired xml.
-- Use method_missing to allow calls direct to the api action, e.g: mws_api.orders.list_orders(params).
-- Parse structured list params
 - Complete documentation.
 
 ## LICENSE
