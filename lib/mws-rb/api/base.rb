@@ -11,9 +11,17 @@ module MWS
       def call(action, params={})
         @verb = params.delete(:verb) || @verb
 
-        #extract request_params for feeds api requests
+        # extract request_params for feeds api requests
         request_params = params[:request_params] || {}
         params = params.except(:request_params)
+
+        # asin needs to be capitalized in requests
+        if action.to_s.include?("ASIN")
+          action = action.to_s.camelize
+          action.sub! "Asin", "ASIN"
+        else
+          action = action.to_s.camelize
+        end
 
         query = Query.new({
           verb: @verb,
@@ -23,7 +31,7 @@ module MWS
           aws_access_key_id: @connection.aws_access_key_id,
           aws_secret_access_key: @connection.aws_secret_access_key,
           seller_id: @connection.seller_id,
-          action: action.to_s.camelize,
+          action: action,
           version: @version,
           params: params
         })
