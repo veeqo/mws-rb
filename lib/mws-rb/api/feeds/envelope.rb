@@ -1,6 +1,12 @@
 class MWS::API::Feeds::Envelope
   def initialize(params={})
-    @envelope = build_envelope(params)
+    unless params[:type] == 'text'
+      @type = :xml
+      @envelope = build_envelope(params)
+    else
+      @type = :text
+      @envelope = params[:message]
+    end
     validate! unless params[:skip_schema_validation] == true
   end
 
@@ -23,11 +29,15 @@ class MWS::API::Feeds::Envelope
   end
 
   def to_s
-    result = @envelope.target!
-    result.gsub!('<Items type="array">', "")
-    result.gsub!('</Items>', "")
-    result.gsub!('<Inventories type="array">', "")
-    result.gsub!('</Inventories>', "")
+    if @type == :text
+      result = @envelope 
+    else
+      result = @envelope.target!
+      result.gsub!('<Items type="array">', "")
+      result.gsub!('</Items>', "")
+      result.gsub!('<Inventories type="array">', "")
+      result.gsub!('</Inventories>', "")
+    end
     result
   end
 
@@ -40,6 +50,7 @@ class MWS::API::Feeds::Envelope
   end
 
   private
+
   def build_envelope(params={})
     xml = Builder::XmlMarkup.new
     xml.instruct!
