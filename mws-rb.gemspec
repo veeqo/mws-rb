@@ -21,8 +21,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "guard"
   s.add_development_dependency "guard-rspec"
 
-  s.add_dependency 'httparty',      '~> 0.11.0'
-  s.add_dependency 'nokogiri',      '~> 1.5.0'
-  s.add_dependency 'activesupport', '4.0.8'
+  s.add_dependency 'httparty',      '~> 0.13.0'
+  s.add_dependency 'nokogiri',      '~> 1.6.0'
+  s.add_dependency 'activesupport', "~> 4.0.3"
   s.add_dependency 'builder'
 end
