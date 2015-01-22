@@ -10,6 +10,7 @@ module MWS
         :get_service_status,
         :list_all_fulfillment_orders,
         :list_all_fulfillment_orders_by_next_token,
+        :update_fulfillment_order
       ]
 
       def initialize(connection)
