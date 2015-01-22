@@ -9,7 +9,7 @@ describe MWS::API::Base do
 
   let(:base) {MWS::API::Base.new(connection)}
 
-  it "hould receive a connection object" do
+  it "should receive a connection object" do
     base.connection.should eq(connection)
   end
 
