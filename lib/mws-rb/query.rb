@@ -29,7 +29,7 @@ module MWS
     end
 
     def signature
-      digest = OpenSSL::Digest::Digest.new('sha256')
+      digest = OpenSSL::Digest.new('sha256')
       Base64.encode64(OpenSSL::HMAC.digest(digest, aws_secret_access_key, canonical)).strip
     end
 
