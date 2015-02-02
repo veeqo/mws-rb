@@ -3,6 +3,9 @@ module MWS
     class Base
       attr_reader :connection, :uri, :version, :verb
 
+      # TODO: Temporary solution, move to configuration
+      DEFAULT_TIMEOUT = 2000
+
       def initialize(connection)
         @verb ||= :get
         @connection = connection
@@ -30,9 +33,9 @@ module MWS
 
         case @verb.to_s.upcase
         when "GET"
-          HTTParty.get(query.request_uri)
+          HTTParty.get(query.request_uri, http_request_options)
         when "POST"
-          HTTParty.post(query.request_uri, request_params)
+          HTTParty.post(query.request_uri, request_params.merge(http_request_options))
         end
       end
 
@@ -42,6 +45,12 @@ module MWS
         else
           super
         end
+      end
+
+      def http_request_options
+        {
+          timeout: DEFAULT_TIMEOUT
+        }
       end
     end
   end
