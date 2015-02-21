@@ -15,10 +15,10 @@ describe MWS::API::Orders do
   end
 
   it "should set the right :uri" do
-    orders.uri.should eq("/Orders/2011-01-01")
+    orders.uri.should eq("/Orders/2013-09-01")
   end
 
   it "should set the right :version" do
-    orders.version.should eq("2011-01-01")
+    orders.version.should eq("2013-09-01")
   end
 end
