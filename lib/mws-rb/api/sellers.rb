@@ -1,7 +1,10 @@
 module MWS
   module API
     class Sellers < Base
-      Actions = [:list_marketplace_participations, :list_marketplace_participations_by_next_token, :get_service_status]
+      Actions = [:list_marketplace_participations,
+                 :list_marketplace_participations_by_next_token,
+                 :get_auth_token,
+                 :get_service_status]
 
       def initialize(connection)
         @uri = "/Sellers/2011-07-01"
