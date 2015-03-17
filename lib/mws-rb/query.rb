@@ -1,6 +1,6 @@
 module MWS
   class Query
-    attr_reader :verb, :uri, :host, :aws_access_key_id, :aws_secret_access_key, :action, :seller_id,
+    attr_reader :verb, :uri, :host, :aws_access_key_id, :aws_secret_access_key, :mws_auth_token, :action, :seller_id,
                 :signature_method, :signature_version, :timestamp, :version
 
     def initialize(params={})
@@ -10,6 +10,7 @@ module MWS
 
       @aws_access_key_id = params[:aws_access_key_id]
       @aws_secret_access_key = params[:aws_secret_access_key]
+      @mws_auth_token = params[:mws_auth_token]
       @action = params[:action]
       @seller_id = params[:seller_id]
       @signature_method = params[:signature_method] || "HmacSHA256"
@@ -43,6 +44,7 @@ module MWS
         "Timestamp" => @timestamp,
         "Version" => @version
       }
+      query["MWSAuthToken"] = @mws_auth_token if @mws_auth_token
       query["Signature"] = signature if signature
 
       params = Helpers.camelize_keys(@params || {})
