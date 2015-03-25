@@ -32,7 +32,7 @@ class MWS::API::Feeds::Envelope
   end
 
   def xsd
-    Nokogiri::XML::Schema(File.open(File.join(File.dirname(__FILE__),"xsd/amzn-envelope.xsd")))
+    Nokogiri::XML::Schema(File.open(File.join(MWS::API::Feeds::XSD_PATH, "amzn-envelope.xsd")))
   end
 
   def errors
