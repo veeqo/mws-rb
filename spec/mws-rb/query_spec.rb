@@ -32,7 +32,7 @@ describe MWS::Query do
   describe "Build query" do
     context 'when MWSAuthToken param presents' do
       let(:query_params) { super().merge(mws_auth_token: 'auth_token') }
-      let(:generated_query) { "AWSAccessKeyId=key&Action=ListOrders&MWSAuthToken=auth_token&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
+      let(:generated_query) { "AWSAccessKeyId=key&Action=ListOrders&MWSAuthToken=auth_token&SellerId=Seller%20ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
 
       it "should build a simple query with MWSAuthToken" do
         query.build_query.should eq(generated_query)
@@ -40,7 +40,7 @@ describe MWS::Query do
     end
 
     context 'when MWSAuthTokenParam does not present' do
-      let(:generated_query) { "AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
+      let(:generated_query) { "AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller%20ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
 
       it "should build a simple query without empty MWSAuthToken" do
         query.build_query.should eq(generated_query)
@@ -60,7 +60,7 @@ describe MWS::Query do
   describe "canonical string" do
     context 'when MWSAuthToken param presents' do
       let(:query_params) { super().merge(mws_auth_token: 'auth_token') }
-      let(:canonical) { "GET\nmws-eu.amazonservices.com\n/\nAWSAccessKeyId=key&Action=ListOrders&MWSAuthToken=auth_token&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
+      let(:canonical) { "GET\nmws-eu.amazonservices.com\n/\nAWSAccessKeyId=key&Action=ListOrders&MWSAuthToken=auth_token&SellerId=Seller%20ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
 
       it "should generate a canonical string with MWSAuthToken" do
         query.canonical.should eq(canonical)
@@ -68,7 +68,7 @@ describe MWS::Query do
     end
 
     context 'when MWSAuthTokenParam does not present' do
-      let(:canonical) { "GET\nmws-eu.amazonservices.com\n/\nAWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
+      let(:canonical) { "GET\nmws-eu.amazonservices.com\n/\nAWSAccessKeyId=key&Action=ListOrders&SellerId=Seller%20ID&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
 
       it "should generate a canonical string without empty MWSAuthToken" do
         query.canonical.should eq(canonical)
@@ -81,13 +81,13 @@ describe MWS::Query do
       let(:query_params) { super().merge(mws_auth_token: 'auth_token') }
 
       it "should generate a valid signature taking into account MWSAuthToken" do
-        query.signature.should eq("rulqZzJFN7YyHfW5kMatF4cXNzxZcOAox6lT97PveCo=")
+        query.signature.should eq("1+bIWdZtiUwNNObu9fSYkQPVkSzRf4/lX5/FFgwx+4U=")
       end
     end
 
     context 'when MWSAuthTokenParam does not present' do
       it "should generate a valid signature" do
-        query.signature.should eq("7XZO1dSv7BHElkee33Rt7L5PNFiBET13pg3pOWKeoo0=")
+        query.signature.should eq("oX3unEp6tJNOMyKbzErz0CRl96p+Lmf/jmk3JFuikrg=")
       end
     end
   end
@@ -95,7 +95,7 @@ describe MWS::Query do
   describe "request_uri" do
     context 'when MWSAuthToken param presents' do
       let(:query_params) { super().merge(mws_auth_token: 'auth_token') }
-      let(:request_uri) { "https://mws-eu.amazonservices.com/?AWSAccessKeyId=key&Action=ListOrders&MWSAuthToken=auth_token&SellerId=Seller+ID&Signature=rulqZzJFN7YyHfW5kMatF4cXNzxZcOAox6lT97PveCo%3D&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
+      let(:request_uri) { "https://mws-eu.amazonservices.com/?AWSAccessKeyId=key&Action=ListOrders&MWSAuthToken=auth_token&SellerId=Seller%20ID&Signature=1%2BbIWdZtiUwNNObu9fSYkQPVkSzRf4%2FlX5%2FFFgwx%2B4U%3D&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
 
       it "should generate a valid request uri with MWSAuthToken" do
         query.request_uri.should eq(request_uri)
@@ -103,7 +103,7 @@ describe MWS::Query do
     end
 
     context 'when MWSAuthTokenParam does not present' do
-      let(:request_uri) { "https://mws-eu.amazonservices.com/?AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller+ID&Signature=7XZO1dSv7BHElkee33Rt7L5PNFiBET13pg3pOWKeoo0%3D&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
+      let(:request_uri) { "https://mws-eu.amazonservices.com/?AWSAccessKeyId=key&Action=ListOrders&SellerId=Seller%20ID&Signature=oX3unEp6tJNOMyKbzErz0CRl96p%2BLmf%2Fjmk3JFuikrg%3D&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2013-01-01T00%3A00%3A00-02%3A00&Version=2010-01-01" }
 
       it "should generate a valid request uri without empty MWSAuthToken" do
         query.request_uri.should eq(request_uri)
