@@ -47,12 +47,20 @@ module MWS
       query["MWSAuthToken"] = @mws_auth_token if @mws_auth_token
       query["Signature"] = signature if signature
 
-      params = Helpers.camelize_keys(@params || {})
-      params = Helpers.make_structured_lists(params)
+      params = Helpers.make_structured_lists(@params || {})
+      params = Helpers.camelize_keys(params)
       query.merge!(params)
 
-      # Sort hash in natural-byte order
-      Hash[Helpers.escape_date_time_params(query).sort].to_query
+      # http://jamesmurty.com/2008/12/31/aws-query-signature-version-2/
+      # Sort, and encode parameters into a canonical string.
+      sorted_params = Hash[Helpers.escape_date_time_params(query).sort { |x,y| x[0] <=> y[0] }]
+      encoded_params = sorted_params.collect do |p|
+        encoded = (CGI::escape(p[0].to_s) +
+                   "=" + CGI::escape(p[1].to_s))
+        # Ensure spaces are encoded as '%20', not '+'
+        encoded.gsub('+', '%20')
+      end
+      params_string = encoded_params.join("&")
     end
 
     module Helpers
