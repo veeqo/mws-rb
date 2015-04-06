@@ -3,6 +3,7 @@ PATH
   specs:
     mws-rb (0.0.3)
       activesupport (~> 3.0)
+      addressable (~> 2.3.8)
       builder
       httparty (~> 0.11.0)
       nokogiri (~> 1.5.0)
@@ -13,6 +14,7 @@ GEM
     activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
+    addressable (2.3.8)
     builder (3.2.2)
     coderay (1.0.9)
     diff-lcs (1.2.4)
