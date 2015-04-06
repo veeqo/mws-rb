@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mws-rb (0.0.1)
+    mws-rb (0.0.3)
       activesupport (~> 3.0)
       builder
       httparty (~> 0.11.0)
@@ -10,7 +10,7 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    activesupport (3.2.14)
+    activesupport (3.2.21)
       i18n (~> 0.6, >= 0.6.4)
       multi_json (~> 1.0)
     builder (3.2.2)
@@ -30,16 +30,16 @@ GEM
     httparty (0.11.0)
       multi_json (~> 1.0)
       multi_xml (>= 0.5.2)
-    i18n (0.6.5)
+    i18n (0.7.0)
     listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
     lumberjack (1.0.4)
     method_source (0.8.2)
-    multi_json (1.8.0)
+    multi_json (1.11.0)
     multi_xml (0.5.5)
-    nokogiri (1.5.10)
+    nokogiri (1.5.11)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
