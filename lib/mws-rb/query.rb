@@ -1,3 +1,5 @@
+require "addressable/uri"
+
 module MWS
   class Query
     attr_reader :verb, :uri, :host, :aws_access_key_id, :aws_secret_access_key, :mws_auth_token, :action, :seller_id,
@@ -52,7 +54,9 @@ module MWS
       query.merge!(params)
 
       # Sort hash in natural-byte order
-      Hash[Helpers.escape_date_time_params(query).sort].to_query
+      uri = Addressable::URI.new
+      uri.query_values = Hash[Helpers.escape_date_time_params(query).sort]
+      uri.query
     end
 
     module Helpers
