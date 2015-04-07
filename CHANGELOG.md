@@ -19,3 +19,9 @@ Version 0.0.3 (February 21, 2015)
 
 * Fix Orders API spec
 * Add default timeout for requests
+
+Version 0.0.4 (April 7, 2015)
+-----------------------------
+
+* Add support of MWS Auth Token
+* Add global reference to the location of XSD files
