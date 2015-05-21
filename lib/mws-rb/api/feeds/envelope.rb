@@ -7,7 +7,7 @@ class MWS::API::Feeds::Envelope
       @type = :text
       @envelope = params[:message]
     end
-    validate! unless params[:skip_schema_validation] == true
+    validate! unless params[:skip_schema_validation] or @type == :text
   end
 
   def valid?
