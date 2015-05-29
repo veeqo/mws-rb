@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mws-rb (0.0.3)
+    mws-rb (0.0.5)
       activesupport (~> 3.0)
       addressable (~> 2.3.8)
       builder
