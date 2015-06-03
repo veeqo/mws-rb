@@ -26,6 +26,7 @@ module MWS
           aws_access_key_id: @connection.aws_access_key_id,
           aws_secret_access_key: @connection.aws_secret_access_key,
           seller_id: @connection.seller_id,
+          mws_auth_token: @connection.mws_auth_token,
           action: action.to_s.camelize,
           version: @version,
           params: params
