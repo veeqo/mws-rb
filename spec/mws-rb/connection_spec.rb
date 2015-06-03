@@ -5,7 +5,8 @@ describe MWS::Connection do
   let(:subject) {MWS::Connection.new({
     aws_access_key_id: "access key",
     aws_secret_access_key: "secret key",
-    seller_id: "seller id"
+    seller_id: "seller id",
+    mws_auth_token: 'auth token'
   })}
 
   it "should have a default host" do

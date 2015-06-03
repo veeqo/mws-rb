@@ -4,7 +4,8 @@ describe MWS::API::FulfillmentOutboundShipment do
   let(:connection) {MWS::Connection.new({
     aws_access_key_id: "access key",
     aws_secret_access_key: "secret key",
-    seller_id: "seller id"
+    seller_id: "seller id",
+    mws_auth_token: 'auth token'
   })}
 
   let(:fulfillment_outbound_shipment) {MWS::API::FulfillmentOutboundShipment.new(connection)}

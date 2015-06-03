@@ -5,7 +5,8 @@ describe MWS::API::Products do
   let(:connection) {MWS::Connection.new({
     aws_access_key_id: "access key",
     aws_secret_access_key: "secret key",
-    seller_id: "seller id"
+    seller_id: "seller id",
+    mws_auth_token: 'auth token'
   })}
 
   let(:orders) {MWS::API::Products.new(connection)}
