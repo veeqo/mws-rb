@@ -1,0 +1,194 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&SellerId=DUMMY_AWS_SELLER_ID&Signature=YhLXlDNxtEoA0JFn1Ou/g78cCk3wRsmm7DQM5Osv52U=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:48:47%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:48:47 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - 9nvPYIFZcDSyJOo82gQXO7vbiHtlOMe7RuCEavas4rRUqwOYpytQj9URGbGRWqygBTt9uVxyqGM=
+      - tVEHw2ngd7MQqekkIH6SHdkc+GXWxabddBJmcP4jMnrFiP2APzjUpc0xLVo4MH0fokf+4ICKvJmR
+        9vEuq+KKAmNiuBML4vTW
+      Nncoection:
+      - close
+      X-Mws-Request-Id:
+      - b1ce0365-ed92-44ae-88fe-6dd3644faf0f
+      X-Mws-Timestamp:
+      - '2015-06-30T12:48:47.682Z'
+      Vary:
+      - User-Agent
+      Cneonction:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/octet-stream
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <ErrorResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><Error><Type>Sender</Type><Code>MissingParameter</Code><Message>The request must contain the parameter FeedType.</Message><Detail/></Error><RequestID>b1ce0365-ed92-44ae-88fe-6dd3644faf0f</RequestID></ErrorResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:48:47 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&SellerId=DUMMY_AWS_SELLER_ID&Signature=mkKQFSiDGGTeBhL4wCREjg6nmkdYrytgjb8mokgF668=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:48:55%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:48:55 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - "+izHFJjkotYh8SDI4vUSOaBC//TmEqzywyW25V187okF3Mj4AjBsXpqZarUGkTMJzRXQAsjwLEs="
+      - yFPp7p7vlQ6R976NrCohW0pMunlF08xF6ibip0L1jCozesa3la8cHV7VFoEWBJmK6itHkFfncUgj
+        XGDi1AswxJ6OaNiHAI+9
+      Nncoection:
+      - close
+      X-Mws-Request-Id:
+      - 823a0f36-d6e0-4664-9782-184da28077f8
+      X-Mws-Timestamp:
+      - '2015-06-30T12:48:56.086Z'
+      Vary:
+      - User-Agent
+      Cneonction:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/octet-stream
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <ErrorResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><Error><Type>Sender</Type><Code>MissingParameter</Code><Message>The request must contain the parameter FeedType.</Message><Detail/></Error><RequestID>823a0f36-d6e0-4664-9782-184da28077f8</RequestID></ErrorResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:48:55 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&SellerId=DUMMY_AWS_SELLER_ID&Signature=SMX0ReknNEVJEZCzbTFHXwWpjx7xrBpoqXAmCcx4vmI=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:49:09%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:49:10 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - 8IhxzU2OUesViaDvmTjU0M2K7LLJdHh4NilYtL9c2W89FqrAKH++hUVym5BSIRAeQlDvCEXL4YQb
+        Z20AKzlz7yu5fBpSqvAf
+      - 8RAkAVr+/YBmLQE3ELVqtUZqg/qm3wkrpf8xC7ZEcrKj9YoY7Qzr6sLaXSaFcaSYDVkPeIC6xXY=
+      Nncoection:
+      - close
+      X-Mws-Request-Id:
+      - f81e12bb-d84e-4ca4-b7ef-ec40def8989f
+      X-Mws-Timestamp:
+      - '2015-06-30T12:49:10.502Z'
+      Vary:
+      - User-Agent
+      Cneonction:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/octet-stream
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <ErrorResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><Error><Type>Sender</Type><Code>MissingParameter</Code><Message>The request must contain the parameter FeedType.</Message><Detail/></Error><RequestID>f81e12bb-d84e-4ca4-b7ef-ec40def8989f</RequestID></ErrorResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:49:10 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&SellerId=DUMMY_AWS_SELLER_ID&Signature=LoM5rj6Ejh%2BucLHPs%2BdUnNlyPuaUU6vxh7vbqYkevvs=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:49:17%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:49:17 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Request-Id:
+      - 6f688b33-132d-49ff-a13e-4bce92617d14
+      X-Mws-Timestamp:
+      - '2015-06-30T12:49:18.497Z'
+      X-Mws-Response-Context:
+      - 076VUzKDY6FaNTCNHJIIgDxQ1pzFIQbfPwndCFjOhCPosgq696KYqQEn3jI+GJTw2W4SF0CEP5I=
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '336'
+      Vary:
+      - User-Agent
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0"?>
+        <ErrorResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>InvalidAccessKeyId</Code>
+            <Message>The AWS Access Key Id you provided does not exist in our records.</Message>
+          </Error>
+          <RequestID>6f688b33-132d-49ff-a13e-4bce92617d14</RequestID>
+        </ErrorResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:49:18 GMT
+recorded_with: VCR 2.9.3

@@ -1,0 +1,188 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_FLAT_FILE_INVLOADER_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=A1uUaa3E3Ruc5cpvqbY89cEc02HnkTSYtdjj7fziBk4=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:48:46%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:48:46 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - oVjSJc3pK/oMLSuwwoPG1oO2t8HwOBG0BuA0aj8diCwI3ynAnZwqe+pCYe1aWhy+Bp1TJBcHJHU=
+      - pwr9RH5BLwPGPRabjlf/bUiwT/MTUqcdzNT2UQN4UI/7lZ15k+tiX8qRtYo3pgPX1nAI/ap1EzZ3
+        QfbgWLJ8ijpZKk7YHbzQ
+      X-Amz-Request-Id:
+      - 87e3c8cb-08f6-4714-a998-17aed6e7c1a2
+      X-Mws-Request-Id:
+      - 87e3c8cb-08f6-4714-a998-17aed6e7c1a2
+      X-Mws-Timestamp:
+      - '2015-06-30T12:48:46.735Z'
+      Content-Type:
+      - text/xml
+      Vary:
+      - User-Agent
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <SubmitFeedResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><SubmitFeedResult><FeedSubmissionInfo><FeedSubmissionId>66396016616</FeedSubmissionId><FeedType>_POST_FLAT_FILE_INVLOADER_DATA_</FeedType><SubmittedDate>2015-06-30T12:48:47+00:00</SubmittedDate><FeedProcessingStatus>_SUBMITTED_</FeedProcessingStatus></FeedSubmissionInfo></SubmitFeedResult><ResponseMetadata><RequestId>87e3c8cb-08f6-4714-a998-17aed6e7c1a2</RequestId></ResponseMetadata></SubmitFeedResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:48:47 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_FLAT_FILE_INVLOADER_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=A3UHdPt8cFhM2iFvLtGZE6Tsiqpw6QXWycCeCKPn9sQ=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:48:54%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:48:55 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - GgO3bam0oPV7R3LIsrL6ikggS7SazFRwGgnfb6nIrfLzTUJ99iE1JcxJSBB09mAxH6rXRNSpXPg=
+      - ZDI6z28zJEnmetOutJpxTrJhbuVJ0sRiTCMan1CT+I7WucgNSoaen3rQDpPMixf0xYYBe8j/LR50
+        gS1bSe3/8x1aLBq/Ua2v
+      X-Amz-Request-Id:
+      - 0b90fe39-7f4b-4f4e-8862-d864848e4b75
+      X-Mws-Request-Id:
+      - 0b90fe39-7f4b-4f4e-8862-d864848e4b75
+      X-Mws-Timestamp:
+      - '2015-06-30T12:48:55.357Z'
+      Content-Type:
+      - text/xml
+      Vary:
+      - User-Agent
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <SubmitFeedResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><SubmitFeedResult><FeedSubmissionInfo><FeedSubmissionId>66398016616</FeedSubmissionId><FeedType>_POST_FLAT_FILE_INVLOADER_DATA_</FeedType><SubmittedDate>2015-06-30T12:48:55+00:00</SubmittedDate><FeedProcessingStatus>_SUBMITTED_</FeedProcessingStatus></FeedSubmissionInfo></SubmitFeedResult><ResponseMetadata><RequestId>0b90fe39-7f4b-4f4e-8862-d864848e4b75</RequestId></ResponseMetadata></SubmitFeedResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:48:55 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_FLAT_FILE_INVLOADER_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=60oTMt8KWMpd8g31ovDOe3dr3o%2BU5PP7hIkrT3aFtmk=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:49:09%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:49:09 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - 2QaLvo6z/OBiRN9rcElL5yIYmzN1EXUISVchu1IFqB94RxYmD3rdtJmRUTH6zmJ9XZozYe1Bh80k
+        LCwKv137nkzhsWm5uiXZ
+      - SNjcNjBxzgDJfQBEYvZOn5DuKGhpkwoz94l8QXUWXWc1NUGTfJV91nH6lHDyhdRHOUZo3Hss9Cg=
+      X-Amz-Request-Id:
+      - 680de541-5ead-46f3-ae6c-2466f4fa8cca
+      X-Mws-Request-Id:
+      - 680de541-5ead-46f3-ae6c-2466f4fa8cca
+      X-Mws-Timestamp:
+      - '2015-06-30T12:49:09.790Z'
+      Content-Type:
+      - text/xml
+      Vary:
+      - User-Agent
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <SubmitFeedResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><SubmitFeedResult><FeedSubmissionInfo><FeedSubmissionId>66400016616</FeedSubmissionId><FeedType>_POST_FLAT_FILE_INVLOADER_DATA_</FeedType><SubmittedDate>2015-06-30T12:49:10+00:00</SubmittedDate><FeedProcessingStatus>_SUBMITTED_</FeedProcessingStatus></FeedSubmissionInfo></SubmitFeedResult><ResponseMetadata><RequestId>680de541-5ead-46f3-ae6c-2466f4fa8cca</RequestId></ResponseMetadata></SubmitFeedResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:49:09 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_FLAT_FILE_INVLOADER_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=ZCLHB9oh2RTi9UeXIbl/JU3BcZ0wTBNkTGZNy8LniZM=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:49:17%2B03:00&Type=text&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: "sku\tquantity\nLG-WHITE-1389247\t9"
+    headers:
+      Content-Md5:
+      - onDs6N53e7eIV6Clv1x4ag==
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:49:17 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Request-Id:
+      - 575b4ee6-c958-4a0c-9066-df78c4102699
+      X-Mws-Timestamp:
+      - '2015-06-30T12:49:18.179Z'
+      X-Mws-Response-Context:
+      - BQOMvUJMDnPK4A/5geZLko/zcz7DRZBV56IlGiuJe7VZ+WT5TSkqK1b8lN3dLHxpm+H1mkgYg70=
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '336'
+      Vary:
+      - User-Agent
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0"?>
+        <ErrorResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>InvalidAccessKeyId</Code>
+            <Message>The AWS Access Key Id you provided does not exist in our records.</Message>
+          </Error>
+          <RequestID>575b4ee6-c958-4a0c-9066-df78c4102699</RequestID>
+        </ErrorResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:49:17 GMT
+recorded_with: VCR 2.9.3

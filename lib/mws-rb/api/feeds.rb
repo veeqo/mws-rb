@@ -18,7 +18,7 @@ module MWS
         params = params.except(:merchant_id, :message_type, :message, :messages, :skip_schema_validation)
         call(:submit_feed, params.merge!(
           request_params: {
-            format: "xml",
+            format: :xml,
             headers: {
               "Content-MD5" => xml_envelope.md5
             },

@@ -20,6 +20,8 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rspec"
   s.add_development_dependency "guard"
   s.add_development_dependency "guard-rspec"
+  s.add_development_dependency "vcr"
+  s.add_development_dependency "webmock"
 
   s.add_dependency 'httparty',      '>= 0.11.0'
   s.add_dependency 'nokogiri',      '~> 1.5.0'

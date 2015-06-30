@@ -1,0 +1,224 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_INVENTORY_AVAILABILITY_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=XWuD6msl6t2qzX1huD1cKHdaIzVCvljdM6LxjPN8U%2Bw=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:48:45%2B03:00&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><AmazonEnvelope><Header><DocumentVersion>1.01</DocumentVersion><MerchantIdentifier>DUMMY_AWS_SELLER_ID</MerchantIdentifier></Header><MessageType>Inventory</MessageType><PurgeAndReplace>false</PurgeAndReplace><Message>
+          <MessageID>187791059</MessageID>
+          <OperationType>Update</OperationType>
+          <Inventory>
+            <SKU>LG-WHITE-1389247</SKU>
+            <Quantity>9</Quantity>
+          </Inventory>
+        </Message>
+        </AmazonEnvelope>
+    headers:
+      Content-Md5:
+      - 6N4Mkq/8Ic5aJcb9BwEniw==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:48:45 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - 3Pckn8wilUn9aIuEmPAFedSqbXHUshMlOLodhm5LUGzZ8Mqr1bXLybj50nPfbnEcwo/mLddWPY1e
+        lyEPqi3xvAjy6x7qL+DI
+      - obP4oqdnVecgZxkrlz1tVzBgdvzTsoyYchCr9/VrrLkO+v2oYO4OIh6MQgKUK5Z69thUT+drw7Q=
+      X-Amz-Request-Id:
+      - af92fe96-2d65-4027-8add-b2cd6914cb44
+      X-Mws-Request-Id:
+      - af92fe96-2d65-4027-8add-b2cd6914cb44
+      X-Mws-Timestamp:
+      - '2015-06-30T12:48:45.757Z'
+      Content-Type:
+      - text/xml
+      Vary:
+      - User-Agent
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <SubmitFeedResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><SubmitFeedResult><FeedSubmissionInfo><FeedSubmissionId>66395016616</FeedSubmissionId><FeedType>_POST_INVENTORY_AVAILABILITY_DATA_</FeedType><SubmittedDate>2015-06-30T12:48:46+00:00</SubmittedDate><FeedProcessingStatus>_SUBMITTED_</FeedProcessingStatus></FeedSubmissionInfo></SubmitFeedResult><ResponseMetadata><RequestId>af92fe96-2d65-4027-8add-b2cd6914cb44</RequestId></ResponseMetadata></SubmitFeedResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:48:46 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_INVENTORY_AVAILABILITY_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=qv50y6EcrCS5nhSrkuKu0uXHHAMn0SYAclFYo44bFtE=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:48:53%2B03:00&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><AmazonEnvelope><Header><DocumentVersion>1.01</DocumentVersion><MerchantIdentifier>DUMMY_AWS_SELLER_ID</MerchantIdentifier></Header><MessageType>Inventory</MessageType><PurgeAndReplace>false</PurgeAndReplace><Message>
+          <MessageID>119467838</MessageID>
+          <OperationType>Update</OperationType>
+          <Inventory>
+            <SKU>LG-WHITE-1389247</SKU>
+            <Quantity>9</Quantity>
+          </Inventory>
+        </Message>
+        </AmazonEnvelope>
+    headers:
+      Content-Md5:
+      - PX5rQkl65fhsCdPtOZ+zQg==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:48:53 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - SQ/bavLyHZxmrSZvTMpkxy0IUYX1e3BEy1eLE0tO7T5WNPDNHR5xspwHJbeUJky8VIQCeqop9Eg=
+      - Zv0CSW7kiCIdjxlQ+Rw8E6cT6zjjJ+SFxn0pZs3OyZw6/TvOJuyce98JS9Kx3PHNMhoxqASJJxyG
+        2l9mPO5/VbpCvQuQ4EJY
+      X-Amz-Request-Id:
+      - f1137f6d-605f-45ca-b023-78067c9ff61b
+      X-Mws-Request-Id:
+      - f1137f6d-605f-45ca-b023-78067c9ff61b
+      X-Mws-Timestamp:
+      - '2015-06-30T12:48:54.502Z'
+      Content-Type:
+      - text/xml
+      Vary:
+      - User-Agent
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <SubmitFeedResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><SubmitFeedResult><FeedSubmissionInfo><FeedSubmissionId>66397016616</FeedSubmissionId><FeedType>_POST_INVENTORY_AVAILABILITY_DATA_</FeedType><SubmittedDate>2015-06-30T12:48:54+00:00</SubmittedDate><FeedProcessingStatus>_SUBMITTED_</FeedProcessingStatus></FeedSubmissionInfo></SubmitFeedResult><ResponseMetadata><RequestId>f1137f6d-605f-45ca-b023-78067c9ff61b</RequestId></ResponseMetadata></SubmitFeedResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:48:54 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_INVENTORY_AVAILABILITY_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=sOBVPfBsN72Fxvc9pBBpNU9lEH0HKoMqro%2BQ43An4E4=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:49:08%2B03:00&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><AmazonEnvelope><Header><DocumentVersion>1.01</DocumentVersion><MerchantIdentifier>DUMMY_AWS_SELLER_ID</MerchantIdentifier></Header><MessageType>Inventory</MessageType><PurgeAndReplace>false</PurgeAndReplace><Message>
+          <MessageID>357155942</MessageID>
+          <OperationType>Update</OperationType>
+          <Inventory>
+            <SKU>LG-WHITE-1389247</SKU>
+            <Quantity>9</Quantity>
+          </Inventory>
+        </Message>
+        </AmazonEnvelope>
+    headers:
+      Content-Md5:
+      - 8jloAkK/xNR6l8RkqR5C3Q==
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:49:08 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Quota-Max:
+      - '30.0'
+      X-Mws-Quota-Remaining:
+      - '30.0'
+      X-Mws-Quota-Resetson:
+      - '2015-06-30T13:47:00.000Z'
+      X-Mws-Response-Context:
+      - Zv0CSW7kiCIdjxlQ+Rw8E6cT6zjjJ+SFxn0pZs3OyZw6/TvOJuyce98JS9Kx3PHNMhoxqASJJxyG
+        2l9mPO5/VbpCvQuQ4EJY
+      - biAaQfvAPHbw1EmLG9e9GxmOMiqvAo5fAGX2ybs+Gd2lsDdnE4+ID/xOk1NjbpmGhvPLtwlX3pA=
+      X-Amz-Request-Id:
+      - efc71a9c-4391-4dd8-a55c-4cde500e175d
+      X-Mws-Request-Id:
+      - efc71a9c-4391-4dd8-a55c-4cde500e175d
+      X-Mws-Timestamp:
+      - '2015-06-30T12:49:09.025Z'
+      Content-Type:
+      - text/xml
+      Vary:
+      - User-Agent
+      Transfer-Encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0"?>
+        <SubmitFeedResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/"><SubmitFeedResult><FeedSubmissionInfo><FeedSubmissionId>66399016616</FeedSubmissionId><FeedType>_POST_INVENTORY_AVAILABILITY_DATA_</FeedType><SubmittedDate>2015-06-30T12:49:09+00:00</SubmittedDate><FeedProcessingStatus>_SUBMITTED_</FeedProcessingStatus></FeedSubmissionInfo></SubmitFeedResult><ResponseMetadata><RequestId>efc71a9c-4391-4dd8-a55c-4cde500e175d</RequestId></ResponseMetadata></SubmitFeedResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:49:09 GMT
+- request:
+    method: post
+    uri: https://mws-eu.amazonservices.com/?AWSAccessKeyId=DUMMY_AWS_ACCESS_KEY&Action=SubmitFeed&FeedType=_POST_INVENTORY_AVAILABILITY_DATA_&SellerId=DUMMY_AWS_SELLER_ID&Signature=79Vjr7DFnD5NptbZnqMYvzNrHjrGPC3D5LXpbiw%2Bdq4=&SignatureMethod=HmacSHA256&SignatureVersion=2&Timestamp=2015-06-30T15:49:17%2B03:00&Version=2009-01-01
+    body:
+      encoding: UTF-8
+      string: |-
+        <?xml version="1.0" encoding="UTF-8"?><AmazonEnvelope><Header><DocumentVersion>1.01</DocumentVersion><MerchantIdentifier>DUMMY_AWS_SELLER_ID</MerchantIdentifier></Header><MessageType>Inventory</MessageType><PurgeAndReplace>false</PurgeAndReplace><Message>
+          <MessageID>1348089256</MessageID>
+          <OperationType>Update</OperationType>
+          <Inventory>
+            <SKU>LG-WHITE-1389247</SKU>
+            <Quantity>9</Quantity>
+          </Inventory>
+        </Message>
+        </AmazonEnvelope>
+    headers:
+      Content-Md5:
+      - 6XOh/zz8u3E+t4Dfq1OWGw==
+  response:
+    status:
+      code: 403
+      message: Forbidden
+    headers:
+      Date:
+      - Tue, 30 Jun 2015 12:49:17 GMT
+      Server:
+      - AmazonMWS
+      X-Mws-Request-Id:
+      - 55e36357-52d5-49e6-be5d-191ac7ff40af
+      X-Mws-Timestamp:
+      - '2015-06-30T12:49:17.862Z'
+      X-Mws-Response-Context:
+      - 25buhjM60rp1+W3lzP9nK3pDpiLCEQ/qsuJUaAJEyA8NfjpIOK51ggJ4BCHiTmz5wzFqYG7wJAs=
+      Content-Type:
+      - text/xml
+      Content-Length:
+      - '336'
+      Vary:
+      - User-Agent
+    body:
+      encoding: UTF-8
+      string: |
+        <?xml version="1.0"?>
+        <ErrorResponse xmlns="http://mws.amazonaws.com/doc/2009-01-01/">
+          <Error>
+            <Type>Sender</Type>
+            <Code>InvalidAccessKeyId</Code>
+            <Message>The AWS Access Key Id you provided does not exist in our records.</Message>
+          </Error>
+          <RequestID>55e36357-52d5-49e6-be5d-191ac7ff40af</RequestID>
+        </ErrorResponse>
+    http_version: 
+  recorded_at: Tue, 30 Jun 2015 12:49:17 GMT
+recorded_with: VCR 2.9.3
