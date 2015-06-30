@@ -26,9 +26,9 @@ describe MWS::API::Feeds do
     let(:mws_api) {
       MWS.new(
         host: "mws-eu.amazonservices.com",
-        aws_access_key_id: ENV['AWS_ACCESS_KEY'],
-        aws_secret_access_key: ENV['AWS_SECRET_KEY'],
-        seller_id: ENV['AWS_SELLER_ID']
+        aws_access_key_id: ENV['AWS_ACCESS_KEY'] || 'DUMMY_AWS_ACCESS_KEY',
+        aws_secret_access_key: ENV['AWS_SECRET_KEY'] || 'DUMMY_AWS_SECRET_KEY',
+        seller_id: ENV['AWS_SELLER_ID'] || 'DUMMY_AWS_SELLER_ID'
       )
     }
 
