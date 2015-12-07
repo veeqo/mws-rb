@@ -27,7 +27,7 @@ module MWS
           aws_secret_access_key: @connection.aws_secret_access_key,
           seller_id: @connection.seller_id,
           mws_auth_token: @connection.mws_auth_token,
-          action: action.to_s.camelize,
+          action: action.to_s.camelize.gsub(/(Sku|Asin)/i){|s| $1.upcase},
           version: @version,
           params: params
         })
