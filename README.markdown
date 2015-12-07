@@ -17,36 +17,43 @@ Using in a simple ruby file:
 
 #### Initialization
 
+```ruby
     mws_api = MWS.new(
       host: "mws-eu.amazonservices.com",
       aws_access_key_id: "Your access key id",
       aws_secret_access_key: "Your secret access key",
       seller_id: "Your seller/merchant id"
     )
+```
 
 #### Using
 
 To access the apis you can use:
+
+```ruby
      mws_api._api_name_._action_to_calll(params={})
+```
 
 Let's say we want to retrieve a list of orders using MWS orders api:
 
+```ruby
     mws_api.orders.list_orders(
       "MarketplaceId.Id.1" => "marketplace id",
       created_after: Time.new(2013, 1, 1)
     )
+```
 
 Here is a list of all available APIS:
 
-        mws_api.feeds
-        mws_api.orders
-        mws_api.reports
-        mws_api.products
-        mws_api.sellers
-        mws_api.recommendations
-        mws_api.fulfillment_inventory
-        mws_api.fulfillment_inbound_shipment
-        mws_api.fulfillment_outbound_shipment
+- mws_api.feeds
+- mws_api.orders
+- mws_api.reports
+- mws_api.products
+- mws_api.sellers
+- mws_api.recommendations
+- mws_api.fulfillment_inventory
+- mws_api.fulfillment_inbound_shipment
+- mws_api.fulfillment_outbound_shipment
 
 #### API docs/actions/params
 
