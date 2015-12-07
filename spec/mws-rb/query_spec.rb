@@ -46,6 +46,16 @@ describe MWS::Query do
       builded_query = MWS::Query.new(query_params.merge(params: {custom_param: "custom"})).build_query
       builded_query.should include("CustomParam=custom")
     end
+
+    it "capitalize sku and asin on action name" do
+      asin_query_params = query_params.merge(action: "TestAsin")
+      query =  MWS::Query.new(asin_query_params)
+      query.action.should eq("TestASIN")
+
+      asin_query_params = query_params.merge(action: "TestSku")
+      query =  MWS::Query.new(asin_query_params)
+      query.action.should eq("TestSKU")
+    end
   end
 
   describe "canonical string" do

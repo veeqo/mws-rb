@@ -13,7 +13,7 @@ module MWS
       @aws_access_key_id = params[:aws_access_key_id]
       @aws_secret_access_key = params[:aws_secret_access_key]
       @mws_auth_token = params[:mws_auth_token]
-      @action = params[:action]
+      @action = params[:action].to_s.camelize.gsub(/(Sku|Asin)/i){|s| $1.upcase}
       @seller_id = params[:seller_id]
       @signature_method = params[:signature_method] || "HmacSHA256"
       @signature_version = params[:signature_version] || 2
