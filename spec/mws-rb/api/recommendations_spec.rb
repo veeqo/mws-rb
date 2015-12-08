@@ -12,14 +12,14 @@ describe MWS::API::Recommendations do
   let(:recommendations) {MWS::API::Recommendations.new(connection)}
 
   it "should inheritance from MWS::API::Base" do
-    MWS::API::Recommendations.superclass.should eq(MWS::API::Base)
+    expect(MWS::API::Recommendations.superclass).to eq(MWS::API::Base)
   end
 
   it "should set the right :uri" do
-    recommendations.uri.should eq("/Recommendations/2013-04-01")
+    expect(recommendations.uri).to eq("/Recommendations/2013-04-01")
   end
 
   it "should set the right :version" do
-    recommendations.version.should eq("2013-04-01")
+    expect(recommendations.version).to eq("2013-04-01")
   end
 end

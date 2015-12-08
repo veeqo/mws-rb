@@ -11,14 +11,14 @@ describe MWS::API::FulfillmentInventory do
   let(:fulfillment_inventory) {MWS::API::FulfillmentInventory.new(connection)}
 
   it "should inheritance from MWS::API::Base" do
-    MWS::API::FulfillmentInventory.superclass.should eq(MWS::API::Base)
+    expect(MWS::API::FulfillmentInventory.superclass).to eq(MWS::API::Base)
   end
 
   it "should set the right :uri" do
-    fulfillment_inventory.uri.should eq("/FulfillmentInventory/2010-10-01")
+    expect(fulfillment_inventory.uri).to eq("/FulfillmentInventory/2010-10-01")
   end
 
   it "should set the right :version" do
-    fulfillment_inventory.version.should eq("2010-10-01")
+    expect(fulfillment_inventory.version).to eq("2010-10-01")
   end
 end

@@ -10,44 +10,44 @@ describe MWS::Connection do
   })}
 
   it "should have a default host" do
-    subject.host.should eq("mws.amazonservices.com")
+    expect(subject.host).to eq("mws.amazonservices.com")
   end
 
   describe "call the right apis" do
     it "should return Feeds when calling .feeds" do
-      subject.feeds.instance_of?(MWS::API::Feeds).should == true
+      expect(subject.feeds.instance_of?(MWS::API::Feeds)).to eq(true)
     end
 
     it "should return FulfillmentInboundShipment when calling .fulfillment_inbound_shipment" do
-      subject.fulfillment_inbound_shipment.instance_of?(MWS::API::FulfillmentInboundShipment).should == true
+      expect(subject.fulfillment_inbound_shipment.instance_of?(MWS::API::FulfillmentInboundShipment)).to eq(true)
     end
 
     it "should return FulfillmentInventory when calling .fulfillment_inventory" do
-      subject.fulfillment_inventory.instance_of?(MWS::API::FulfillmentInventory).should == true
+      expect(subject.fulfillment_inventory.instance_of?(MWS::API::FulfillmentInventory)).to eq(true)
     end
 
     it "should return FulfillmentOutboundShipment when calling .fulfillment_outbound_shipment" do
-      subject.fulfillment_outbound_shipment.instance_of?(MWS::API::FulfillmentOutboundShipment).should == true
+      expect(subject.fulfillment_outbound_shipment.instance_of?(MWS::API::FulfillmentOutboundShipment)).to eq(true)
     end
 
     it "should return Orders when calling .orders" do
-      subject.orders.instance_of?(MWS::API::Orders).should == true
+      expect(subject.orders.instance_of?(MWS::API::Orders)).to eq(true)
     end
 
     it "should return Products when calling .products" do
-      subject.products.instance_of?(MWS::API::Products).should == true
+      expect(subject.products.instance_of?(MWS::API::Products)).to eq(true)
     end
 
     it "should return Recommendations when calling .recommendations" do
-      subject.recommendations.instance_of?(MWS::API::Recommendations).should == true
+      expect(subject.recommendations.instance_of?(MWS::API::Recommendations)).to eq(true)
     end
 
     it "should return Reports when calling .reports" do
-      subject.reports.instance_of?(MWS::API::Reports).should == true
+      expect(subject.reports.instance_of?(MWS::API::Reports)).to eq(true)
     end
 
     it "should return Sellers when calling .sellers" do
-      subject.sellers.instance_of?(MWS::API::Sellers).should == true
+      expect(subject.sellers.instance_of?(MWS::API::Sellers)).to eq(true)
     end
   end
 

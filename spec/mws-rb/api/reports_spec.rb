@@ -12,14 +12,14 @@ describe MWS::API::Reports do
   let(:reports) {MWS::API::Reports.new(connection)}
 
   it "should inheritance from MWS::API::Base" do
-    MWS::API::Reports.superclass.should eq(MWS::API::Base)
+    expect(MWS::API::Reports.superclass).to eq(MWS::API::Base)
   end
 
   it "should set the right :uri" do
-    reports.uri.should eq("/")
+    expect(reports.uri).to eq("/")
   end
 
   it "should set the right :version" do
-    reports.version.should eq("2009-01-01")
+    expect(reports.version).to eq("2009-01-01")
   end
 end

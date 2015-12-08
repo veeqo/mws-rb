@@ -12,14 +12,14 @@ describe MWS::API::Orders do
   let(:orders) {MWS::API::Orders.new(connection)}
 
   it "should inheritance from MWS::API::Base" do
-    MWS::API::Orders.superclass.should eq(MWS::API::Base)
+    expect(MWS::API::Orders.superclass).to eq(MWS::API::Base)
   end
 
   it "should set the right :uri" do
-    orders.uri.should eq("/Orders/2013-09-01")
+    expect(orders.uri).to eq("/Orders/2013-09-01")
   end
 
   it "should set the right :version" do
-    orders.version.should eq("2013-09-01")
+    expect(orders.version).to eq("2013-09-01")
   end
 end

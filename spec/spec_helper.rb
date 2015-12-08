@@ -15,6 +15,5 @@ VCR.configure do |config|
 end
 
 RSpec.configure do |config|
-  # so we can use :vcr rather than :vcr => true;
-  config.treat_symbols_as_metadata_keys_with_true_values = true
+  config.raise_errors_for_deprecations!
 end

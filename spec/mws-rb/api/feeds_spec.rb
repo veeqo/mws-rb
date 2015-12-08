@@ -11,15 +11,15 @@ describe MWS::API::Feeds do
   let(:feeds) {MWS::API::Feeds.new(connection)}
 
   it "should inheritance from MWS::API::Base" do
-    MWS::API::Feeds.superclass.should eq(MWS::API::Base)
+    expect(MWS::API::Feeds.superclass).to eq(MWS::API::Base)
   end
 
   it "should set the right :uri" do
-    feeds.uri.should eq("/")
+    expect(feeds.uri).to eq("/")
   end
 
   it "should set the right :version" do
-    feeds.version.should eq("2009-01-01")
+    expect(feeds.version).to eq("2009-01-01")
   end
 
   describe "#submit_feed" do

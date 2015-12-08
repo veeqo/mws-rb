@@ -11,21 +11,21 @@ describe MWS::API::Base do
   let(:base) {MWS::API::Base.new(connection)}
 
   it "should receive a connection object" do
-    base.connection.should eq(connection)
+    expect(base.connection).to eq(connection)
   end
 
   it "should respond to .call" do
-    base.should respond_to(:call)
+    expect(base).to respond_to(:call)
   end
 
   it "should respond to :uri and :version and :verb" do
-    base.should respond_to(:uri)
-    base.should respond_to(:version)
-    base.should respond_to(:verb)
+    expect(base).to respond_to(:uri)
+    expect(base).to respond_to(:version)
+    expect(base).to respond_to(:verb)
   end
 
   it "should set :verb to :get as default" do
-    base.verb.should eq(:get)
+    expect(base.verb).to eq(:get)
   end
 
   describe "method_missing to call actions" do
@@ -39,14 +39,10 @@ describe MWS::API::Base do
     end
 
     let(:test_api) {TestApi.new(connection)}
-    before(:each) {HTTParty.stub(:get).and_return({})}
-
-    it "should not raise exception if Actions contain the action name" do
-      expect {test_api.test_action}.to_not raise_error
-    end
+    before(:each) {allow(HTTParty).to receive(:get).and_return({})}
 
     it "should raise exception if Actions do not contain the action name" do
-      expect {test_api.action_not_found}.to raise_error
+      expect {test_api.action_not_found}.to raise_error(NoMethodError)
     end
   end
 end

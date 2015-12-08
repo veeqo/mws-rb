@@ -4,7 +4,7 @@ describe MWS::API::Feeds::Envelope do
   it "should validate the envelope" do
     expect {
       MWS::API::Feeds::Envelope.new(message_type: "InvalidMessageType", message:{"InvalidItem" => "Invalid"})
-    }.to raise_error
+    }.to raise_error RuntimeError
   end
 
   it "should skip validation when param skip_schema_validation is true" do
@@ -22,8 +22,8 @@ describe MWS::API::Feeds::Envelope do
                 },
                 skip_schema_validation: true)
 
-    envelope.to_s.include?("Items").should == false
-    envelope.to_s.include?("Inventories").should == false
-    envelope.to_s.include?("array").should == false
+    expect(envelope.to_s.include?("Items")).to eq(false)
+    expect(envelope.to_s.include?("Inventories")).to eq(false)
+    expect(envelope.to_s.include?("array")).to eq(false)
   end
 end

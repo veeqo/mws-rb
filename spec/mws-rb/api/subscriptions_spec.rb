@@ -11,14 +11,14 @@ describe MWS::API::Subscriptions do
   let(:subscriptions) {MWS::API::Subscriptions.new(connection)}
 
   it "should inheritance from MWS::API::Base" do
-    MWS::API::Subscriptions.superclass.should eq(MWS::API::Base)
+    expect(MWS::API::Subscriptions.superclass).to eq(MWS::API::Base)
   end
 
   it "should set the right :uri" do
-    subscriptions.uri.should eq("/Subscriptions/2013-07-01")
+    expect(subscriptions.uri).to eq("/Subscriptions/2013-07-01")
   end
 
   it "should set the right :version" do
-    subscriptions.version.should eq("2013-07-01")
+    expect(subscriptions.version).to eq("2013-07-01")
   end
 end
