@@ -1,9 +1,8 @@
-mws-rb
-========
+# mws-rb
 
-This gem is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API. It was extracted from http://veeqo.com
+This gem is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API extracted from http://veeqo.com
 
-#### Installation
+## Installation
 
 Using with a Gemfile:
 
@@ -15,7 +14,7 @@ Using in a simple ruby file:
     gem install mws-rb
     require 'mws-rb'
 
-#### Initialization
+## Initialization
 
 ```ruby
     mws_api = MWS.new(
@@ -26,7 +25,7 @@ Using in a simple ruby file:
     )
 ```
 
-#### Using
+## Using
 
 To access the apis you can use:
 
@@ -55,7 +54,7 @@ Here is a list of all available APIS:
 - mws_api.fulfillment_inbound_shipment
 - mws_api.fulfillment_outbound_shipment
 
-#### API docs/actions/params
+## API docs/actions/params
 
 You can check on the MWS documentation section all actions and params needed:
 
@@ -76,22 +75,3 @@ You can check on the MWS documentation section all actions and params needed:
 ## LICENSE
 
 Copyright (c) Jhimy Fernandes Villar
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

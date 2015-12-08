@@ -10,6 +10,7 @@ Gem::Specification.new do |s|
   s.homepage    = "http://github.com/stjhimy/mws-rb"
   s.summary     = %q{Amazon MWS Gem}
   s.description = %q{A complete wrapper for Amazon.com's Marketplace Web Service (MWS) API.}
+  s.license    = 'MIT'
 
   s.rubyforge_project = "ruby-mws"
 
