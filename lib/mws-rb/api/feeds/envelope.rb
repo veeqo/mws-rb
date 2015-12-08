@@ -1,11 +1,11 @@
 class MWS::API::Feeds::Envelope
   def initialize(params={})
-    unless params[:type] == 'text'
-      @type = :xml
-      @envelope = build_envelope(params)
-    else
+    if params[:type].to_s == 'text'
       @type = :text
       @envelope = params[:message]
+    else
+      @type = :xml
+      @envelope = build_envelope(params)
     end
     validate! unless params[:skip_schema_validation] or @type == :text
   end
@@ -30,7 +30,7 @@ class MWS::API::Feeds::Envelope
 
   def to_s
     if @type == :text
-      result = @envelope 
+      result = @envelope
     else
       result = @envelope.target!
       result.gsub!('<Items type="array">', "")
@@ -71,15 +71,12 @@ class MWS::API::Feeds::Envelope
     xml
   end
 
-  def messages_array params
-    # TODO: Questinable solution. Maybe better to take into account
-    # only one of these parameters
-
+  def messages_array(params)
     get_array(params[:message]) + get_array(params[:messages])
   end
 
-  def get_array parameter
-    [ parameter ].flatten.compact
+  def get_array(parameter)
+    [parameter].flatten.compact
   end
 
   def message_xml message

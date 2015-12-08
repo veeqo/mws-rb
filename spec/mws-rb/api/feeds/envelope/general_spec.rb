@@ -7,10 +7,12 @@ describe MWS::API::Feeds::Envelope do
     }.to raise_error RuntimeError
   end
 
+  it "accepts text based envelope" do
+    expect(MWS::API::Feeds::Envelope.new(type: :text, message: "test").to_s).to eq("test")
+  end
+
   it "should skip validation when param skip_schema_validation is true" do
-    expect {
-      MWS::API::Feeds::Envelope.new(message_type: "InvalidMessageType", message:{"InvalidItem" => "Invalid"}, skip_schema_validation: true)
-    }.to_not raise_error
+    MWS::API::Feeds::Envelope.new(message_type: "InvalidMessageType", message:{"InvalidItem" => "Invalid"}, skip_schema_validation: true)
   end
 
   it "should remove array items" do

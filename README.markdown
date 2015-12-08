@@ -72,7 +72,6 @@ You can check on the MWS documentation section all actions and params needed:
 ## TODO
 
 - Complete documentation.
-- Add missing specs for text based envelope
 
 ## LICENSE
 
