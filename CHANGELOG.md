@@ -39,3 +39,4 @@ Version 0.0.6 (Next release)
 * Update rspec expectations
 * Update dependencies
 * Fix query action SKU|ASIN capitalization
+* Default connection params to ENV variables

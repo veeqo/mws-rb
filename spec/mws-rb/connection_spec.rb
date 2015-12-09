@@ -55,5 +55,12 @@ describe MWS::Connection do
     it "should raise argument error if key, secret or seller_id is not provided" do
       expect {MWS::Connection.new}.to raise_error(ArgumentError)
     end
+
+    it 'default aws_key/aws_secret/mws_auth_token from ENV' do
+      ENV['AWS_ACCESS_KEY_ID'] = 'foo'
+      ENV['AWS_SECRET_ACCESS_KEY'] = 'bar'
+      ENV['MWS_AUTH_TOKEN'] = 'foobar'
+      expect {MWS::Connection.new(seller_id: 'id')}.to_not raise_error
+    end
   end
 end

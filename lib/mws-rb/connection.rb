@@ -4,9 +4,9 @@ module MWS
 
     def initialize(options={})
       @host = options[:host] ||"mws.amazonservices.com"
-      @aws_access_key_id = options[:aws_access_key_id] || MWS.aws_access_key_id
-      @aws_secret_access_key = options[:aws_secret_access_key] || MWS.aws_secret_access_key
-      @mws_auth_token = options[:mws_auth_token]
+      @aws_access_key_id = options[:aws_access_key_id] || MWS.aws_access_key_id || ENV['AWS_ACCESS_KEY_ID']
+      @aws_secret_access_key = options[:aws_secret_access_key] || MWS.aws_secret_access_key || ENV['AWS_SECRET_ACCESS_KEY']
+      @mws_auth_token = options[:mws_auth_token] || ENV['MWS_AUTH_TOKEN']
       @seller_id = options[:seller_id]
 
       if @aws_access_key_id.to_s.empty? || @aws_secret_access_key.to_s.empty? || @seller_id.to_s.empty?
