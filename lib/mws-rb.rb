@@ -44,7 +44,6 @@ module MWS
     @connection = MWS::Connection.new(options)
   end
 
-  # Allow using using a global key and secret
   def self.config
     yield self
   end

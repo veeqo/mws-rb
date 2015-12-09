@@ -68,10 +68,6 @@ You can check on the MWS documentation section all actions and params needed:
 - http://docs.developer.amazonservices.com/en_US/recommendations/index.html
 - http://docs.developer.amazonservices.com/en_US/sellers/index.html
 
-## TODO
-
-- Complete documentation.
-
 ## LICENSE
 
 Copyright (c) Jhimy Fernandes Villar
