@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = MWS::VERSION
   s.authors     = ["Jhimy Fernandes Villar"]
   s.email       = ["stjhimy@gmail.com"]
-  s.homepage    = "http://github.com/stjhimy/mws-rb"
+  s.homepage    = "http://github.com/veeqo/mws-rb"
   s.summary     = %q{Amazon MWS Gem}
   s.description = %q{A complete wrapper for Amazon.com's Marketplace Web Service (MWS) API.}
   s.license    = 'MIT'
@@ -18,15 +18,15 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "rspec"
-  s.add_development_dependency "guard"
-  s.add_development_dependency "guard-rspec"
-  s.add_development_dependency "vcr"
-  s.add_development_dependency "webmock"
+  s.add_development_dependency "rspec",       '~> 3.4'
+  s.add_development_dependency "guard",       '~> 2.13'
+  s.add_development_dependency "guard-rspec", '~> 4.6'
+  s.add_development_dependency "vcr",         '~> 3.0'
+  s.add_development_dependency "webmock",     '~> 1.22'
 
-  s.add_dependency 'httparty',      '~> 0.13.0'
-  s.add_dependency 'nokogiri',      '~> 1.6.0'
+  s.add_dependency 'httparty',      '~> 0.13'
+  s.add_dependency 'nokogiri',      '~> 1.6'
   s.add_dependency 'activesupport', '~> 3.0'
-  s.add_dependency 'addressable',   '~> 2.3.8'
-  s.add_dependency 'builder'
+  s.add_dependency 'addressable',   '~> 2.3'
+  s.add_dependency 'builder',       '~> 3.2'
 end
