@@ -31,3 +31,11 @@ Version 0.0.5 (May 29, 2015)
 
 * Fix signature generation
 * Add support text based feeds
+
+Version 0.0.6 (Next release)
+-----------------------------
+
+* Add missing specs
+* Update rspec expectations
+* Update dependencies
+* Fix query action SKU|ASIN capitalization
