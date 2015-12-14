@@ -5,7 +5,7 @@ require 'mws-rb'
 require 'vcr'
 
 VCR.configure do |config|
-  config.cassette_library_dir = "spec/fixtures/vcr_cassettes"
+  config.cassette_library_dir = 'spec/fixtures/vcr_cassettes'
   config.hook_into :webmock # or :fakeweb
   config.configure_rspec_metadata!
   config.default_cassette_options = { match_requests_on: [:method, :host] }
@@ -14,6 +14,4 @@ VCR.configure do |config|
   config.filter_sensitive_data('DUMMY_AWS_SELLER_ID')  { ENV['AWS_SELLER_ID']  }
 end
 
-RSpec.configure do |config|
-  config.raise_errors_for_deprecations!
-end
+RSpec.configure(&:raise_errors_for_deprecations!)

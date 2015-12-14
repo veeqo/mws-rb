@@ -3,7 +3,7 @@ module MWS
     class Feeds < Base
       XSD_PATH = File.join(File.dirname(__FILE__), "feeds", "xsd")
 
-      Actions = [:get_feed_submission_list, :get_feed_submission_list_by_next_token,
+      ACTIONS = [:get_feed_submission_list, :get_feed_submission_list_by_next_token,
                  :get_feed_submission_count, :cancel_feed_submissions, :get_feed_submission_result ]
 
       def initialize(connection)

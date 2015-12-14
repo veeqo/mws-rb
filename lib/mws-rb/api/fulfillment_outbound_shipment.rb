@@ -1,7 +1,7 @@
 module MWS
   module API
     class FulfillmentOutboundShipment < Base
-      Actions = [
+      ACTIONS = [
         :cancel_fulfillment_order,
         :create_fulfillment_order,
         :get_fulfillment_order,

@@ -41,7 +41,7 @@ module MWS
       end
 
       def method_missing(name, *args)
-        if self.class::Actions.include?(name)
+        if self.class::ACTIONS.include?(name)
           self.call(name, *args)
         else
           super
