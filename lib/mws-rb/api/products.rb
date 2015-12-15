@@ -1,5 +1,6 @@
 module MWS
   module API
+    # Products
     class Products < Base
       ACTIONS = [:list_matching_products, :get_matching_product, :get_matching_product_for_id,
                  :get_competitive_pricing_for_SKU, :get_competitive_pricing_for_ASIN,
@@ -9,8 +10,8 @@ module MWS
                  :get_service_status]
 
       def initialize(connection)
-        @uri = "/Products/2011-10-01"
-        @version = "2011-10-01"
+        @uri = '/Products/2011-10-01'
+        @version = '2011-10-01'
         super
       end
     end

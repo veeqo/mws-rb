@@ -1,21 +1,24 @@
-require "addressable/uri"
+require 'addressable/uri'
 
+# MWS
 module MWS
+  # Query
   class Query
     attr_reader :verb, :uri, :host, :aws_access_key_id, :aws_secret_access_key, :mws_auth_token, :action, :seller_id,
                 :signature_method, :signature_version, :timestamp, :version
 
-    def initialize(params={})
-      @verb = params[:verb] || "GET"
-      @uri = params[:uri] || "/"
+    # rubocop:disable all
+    def initialize(params = {})
+      @verb = params[:verb] || 'GET'
+      @uri = params[:uri] || '/'
       @host = params[:host]
 
       @aws_access_key_id = params[:aws_access_key_id]
       @aws_secret_access_key = params[:aws_secret_access_key]
       @mws_auth_token = params[:mws_auth_token]
-      @action = params[:action].to_s.camelize.gsub(/(Sku|Asin)/i){|s| $1.upcase}
+      @action = params[:action].to_s.camelize.gsub(/(Sku|Asin)/i) { |_s| Regexp.last_match(1).upcase }
       @seller_id = params[:seller_id]
-      @signature_method = params[:signature_method] || "HmacSHA256"
+      @signature_method = params[:signature_method] || 'HmacSHA256'
       @signature_version = params[:signature_version] || 2
       @timestamp = params[:timestamp] || Time.now
       @version = params[:version]
@@ -24,7 +27,7 @@ module MWS
     end
 
     def request_uri
-      "https://" << @host << @uri << '?' << build_query(signature)
+      'https://' << @host << @uri << '?' << build_query(signature)
     end
 
     def canonical
@@ -36,18 +39,18 @@ module MWS
       Base64.encode64(OpenSSL::HMAC.digest(digest, aws_secret_access_key, canonical)).strip
     end
 
-    def build_query(signature=nil)
+    def build_query(signature = nil)
       query = {
-        "AWSAccessKeyId" => @aws_access_key_id,
-        "Action" => @action,
-        "SellerId" => @seller_id,
-        "SignatureMethod" => @signature_method,
-        "SignatureVersion" => @signature_version,
-        "Timestamp" => @timestamp,
-        "Version" => @version
+        'AWSAccessKeyId' => @aws_access_key_id,
+        'Action' => @action,
+        'SellerId' => @seller_id,
+        'SignatureMethod' => @signature_method,
+        'SignatureVersion' => @signature_version,
+        'Timestamp' => @timestamp,
+        'Version' => @version
       }
-      query["MWSAuthToken"] = @mws_auth_token if @mws_auth_token
-      query["Signature"] = signature if signature
+      query['MWSAuthToken'] = @mws_auth_token if @mws_auth_token
+      query['Signature'] = signature if signature
 
       params = Helpers.camelize_keys(@params || {})
       params = Helpers.make_structured_lists(params)
@@ -59,39 +62,40 @@ module MWS
       uri.query
     end
 
+    # Helpers
     module Helpers
-      def self.escape_date_time_params(params={})
+      def self.escape_date_time_params(params = {})
         params.map do |key, value|
           case value.class.name
-          when "Time", "Date", "DateTime"
-            {key => value.iso8601}
-          when "Hash"
-            {key => escape_date_time_params(value)}
+          when 'Time', 'Date', 'DateTime'
+            { key => value.iso8601 }
+          when 'Hash'
+            { key => escape_date_time_params(value) }
           else
-            {key => value}
+            { key => value }
           end
         end.reduce({}, :merge)
       end
 
-      def self.camelize_keys(params={})
+      def self.camelize_keys(params = {})
         params.map do |key, value|
           case value.class.name
-          when "Hash"
-            {key.to_s.camelize => camelize_keys(value)}
+          when 'Hash'
+            { key.to_s.camelize => camelize_keys(value) }
           else
-            {key.to_s.camelize => value}
+            { key.to_s.camelize => value }
           end
         end.reduce({}, :merge)
       end
 
-      def self.make_structured_lists(params={})
+      def self.make_structured_lists(params = {})
         params.map do |key, value|
-          if key.to_s.end_with?("list")
+          if key.to_s.end_with?('list')
             value[:values].each_with_index.map do |item, index|
-              {"#{value[:label]}.#{index + 1}" => item}
+              { "#{value[:label]}.#{index + 1}" => item }
             end.reduce({}, :merge)
           else
-            {key => value}
+            { key => value }
           end
         end.reduce({}, :merge)
       end

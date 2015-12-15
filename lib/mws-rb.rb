@@ -1,3 +1,4 @@
+# rubocop:disable all
 require 'httparty'
 require 'base64'
 require 'openssl'
@@ -33,14 +34,14 @@ module MWS
   end
 
   def self.aws_secret_access_key=(secret_key)
-    @@aws_secret_access_key =  secret_key
+    @@aws_secret_access_key = secret_key
   end
 
   def self.aws_secret_access_key
     @@aws_secret_access_key
   end
 
-  def self.new(options={})
+  def self.new(options = {})
     @connection = MWS::Connection.new(options)
   end
 

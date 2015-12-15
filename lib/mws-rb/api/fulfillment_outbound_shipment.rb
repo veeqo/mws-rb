@@ -1,5 +1,6 @@
 module MWS
   module API
+    # FulfilmentOutboundShipment
     class FulfillmentOutboundShipment < Base
       ACTIONS = [
         :cancel_fulfillment_order,
@@ -14,8 +15,8 @@ module MWS
       ]
 
       def initialize(connection)
-        @uri = "/FulfillmentOutboundShipment/2010-10-01"
-        @version = "2010-10-01"
+        @uri = '/FulfillmentOutboundShipment/2010-10-01'
+        @version = '2010-10-01'
         super
       end
     end
