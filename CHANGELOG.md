@@ -40,3 +40,4 @@ Version 0.0.6 (Next release)
 * Update dependencies
 * Fix query action SKU|ASIN capitalization
 * Default connection params to ENV variables
+* Enforce ruby guidelines using Rubocop
