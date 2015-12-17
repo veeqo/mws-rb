@@ -1,6 +1,5 @@
 ---
 language: ruby
-sudo: true
 cache: bundler
 
 rvm:
