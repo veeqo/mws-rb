@@ -12,7 +12,7 @@ module MWS
         :list_all_fulfillment_orders,
         :list_all_fulfillment_orders_by_next_token,
         :update_fulfillment_order
-      ]
+      ].freeze
 
       def initialize(connection)
         @uri = '/FulfillmentOutboundShipment/2010-10-01'

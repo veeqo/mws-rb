@@ -30,7 +30,7 @@ describe MWS::API::Base do
 
   describe 'method_missing to call actions' do
     class TestApi < MWS::API::Base
-      ACTIONS = [:test_action]
+      ACTIONS = [:test_action].freeze
       def initialize(connection)
         @uri = '/Products/2011-10-01'
         @version = '2011-10-01'

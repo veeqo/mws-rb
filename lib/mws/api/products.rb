@@ -7,7 +7,7 @@ module MWS
                  :get_lowest_offer_listings_for_SKU, :get_lowest_offer_listings_for_ASIN,
                  :get_my_price_for_SKU, :get_my_price_for_ASIN,
                  :get_product_categories_for_SKU, :get_product_categories_for_ASIN,
-                 :get_service_status]
+                 :get_service_status].freeze
 
       def initialize(connection)
         @uri = '/Products/2011-10-01'

@@ -5,7 +5,7 @@ module MWS
       XSD_PATH = File.join(File.dirname(__FILE__), 'feeds', 'xsd')
 
       ACTIONS = [:get_feed_submission_list, :get_feed_submission_list_by_next_token,
-                 :get_feed_submission_count, :cancel_feed_submissions, :get_feed_submission_result]
+                 :get_feed_submission_count, :cancel_feed_submissions, :get_feed_submission_result].freeze
 
       def initialize(connection)
         @uri = '/'
