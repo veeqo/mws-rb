@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler/setup'
 
-require 'mws-rb'
+require 'mws'
 require 'vcr'
 
 VCR.configure do |config|

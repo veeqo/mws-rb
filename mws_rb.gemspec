@@ -1,9 +1,8 @@
-# -*- encoding: utf-8 -*-
 $LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require 'mws-rb/version'
+require 'mws/version'
 
 Gem::Specification.new do |s|
-  s.name        = 'mws-rb'
+  s.name        = 'mws_rb'
   s.version     = MWS::VERSION
   s.authors     = ['Jhimy Fernandes Villar']
   s.email       = ['stjhimy@gmail.com']

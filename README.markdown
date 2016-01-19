@@ -1,4 +1,4 @@
-# mws-rb
+# mws_rb
 
 This gem is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API extracted from http://veeqo.com
 
@@ -6,13 +6,13 @@ This gem is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) AP
 
 Using with a Gemfile:
 
-    gem 'mws-rb'
+    gem 'mws_rb', require: 'mws'
     bundle install
 
 Using in a simple ruby file:
 
-    gem install mws-rb
-    require 'mws-rb'
+    gem install mws_rb
+    require 'mws'
 
 ## Initialization
 
@@ -71,4 +71,3 @@ You can check on the MWS documentation section all actions and params needed:
 ## LICENSE
 
 Copyright (c) Jhimy Fernandes Villar
-
