@@ -7,3 +7,8 @@ rvm:
 
 script:
   - bundle exec rspec
+
+env:
+  - "activesupport42=true"
+  - "activesupport41=true"
+  - "activesupport40=true"
