@@ -1,5 +1,7 @@
 # mws_rb
 
+[![Build Status](https://secure.travis-ci.org/veeqo/mws-rb.png)](http://travis-ci.org/veeqo/mws-rb)
+
 This gem is a complete wrapper for Amazon.com's Marketplace Web Service (MWS) API extracted from http://veeqo.com
 
 ## Installation
