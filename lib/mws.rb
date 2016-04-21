@@ -2,6 +2,7 @@
 require 'httparty'
 require 'base64'
 require 'openssl'
+require 'active_support'
 require 'active_support/core_ext'
 require 'builder'
 require 'nokogiri'
