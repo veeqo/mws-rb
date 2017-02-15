@@ -21,6 +21,7 @@ require_relative 'mws/api/fulfillment_inbound_shipment'
 require_relative 'mws/api/fulfillment_outbound_shipment'
 require_relative 'mws/api/feeds'
 require_relative 'mws/api/feeds/envelope'
+require_relative 'mws/api/merchant_fulfillment'
 
 module MWS
   @@aws_access_key_id = nil

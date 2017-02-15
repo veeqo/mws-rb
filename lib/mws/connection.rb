@@ -52,5 +52,9 @@ module MWS
     def sellers
       @sellers ||= MWS::API::Sellers.new(self)
     end
+
+    def merchant_fulfillment
+      @merchant_fulfillment ||= MWS::API::MerchantFulfilllment.new(self)
+    end
   end
 end
