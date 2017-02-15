@@ -53,7 +53,7 @@ describe MWS::API::Feeds do
       end
 
       it 'returns a kind of hash' do
-        expect(subject).to be_kind_of(Hash)
+        expect(subject).to be_kind_of(HTTParty::Response)
       end
     end
 
@@ -67,7 +67,7 @@ describe MWS::API::Feeds do
       end
 
       it 'returns a kind of hash' do
-        expect(subject).to be_kind_of(Hash)
+        expect(subject).to be_kind_of(HTTParty::Response)
       end
     end
 
@@ -81,7 +81,7 @@ describe MWS::API::Feeds do
       end
 
       it 'returns a kind of hash' do
-        expect(subject).to be_kind_of(Hash)
+        expect(subject).to be_kind_of(HTTParty::Response)
       end
     end
   end
