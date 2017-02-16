@@ -55,6 +55,7 @@ Here is a list of all available APIS:
 - mws_api.fulfillment_inventory
 - mws_api.fulfillment_inbound_shipment
 - mws_api.fulfillment_outbound_shipment
+- mws_api.merchant_fulfillment
 
 ## API docs/actions/params
 
@@ -69,7 +70,7 @@ You can check on the MWS documentation section all actions and params needed:
 - http://docs.developer.amazonservices.com/en_US/products/index.html
 - http://docs.developer.amazonservices.com/en_US/recommendations/index.html
 - http://docs.developer.amazonservices.com/en_US/sellers/index.html
-
+- http://docs.developer.amazonservices.com/en_UK/merch_fulfill/index.html
 ## LICENSE
 
 Copyright (c) Jhimy Fernandes Villar
