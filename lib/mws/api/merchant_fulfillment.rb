@@ -10,7 +10,7 @@ module MWS
       ].freeze
 
       def initialize(connection)
-        @uri = 'MerchantFulfillment/2015-06-01'
+        @uri = '/MerchantFulfillment/2015-06-01'
         @version = '2015-06-01'
         super
       end
