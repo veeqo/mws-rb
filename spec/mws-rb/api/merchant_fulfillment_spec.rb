@@ -15,7 +15,7 @@ describe MWS::API::MerchantFulfilllment do
   end
 
   it 'should set the right :uri' do
-    expect(merchant_fulfillment.uri).to eq('MerchantFulfillment/2015-06-01')
+    expect(merchant_fulfillment.uri).to eq('/MerchantFulfillment/2015-06-01')
   end
 
   it 'should set the right :version' do
