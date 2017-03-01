@@ -1,3 +1,5 @@
+require 'xmlsimple'
+
 module MWS
   module API
     class Feeds
@@ -35,9 +37,9 @@ module MWS
             result = @envelope
           else
             result = @envelope.target!
-            result.gsub!('<Items type="array">', '')
+            result.gsub!('<Items>', '')
             result.gsub!('</Items>', '')
-            result.gsub!('<Inventories type="array">', '')
+            result.gsub!('<Inventories>', '')
             result.gsub!('</Inventories>', '')
           end
           result
@@ -76,7 +78,14 @@ module MWS
         end
 
         def message_xml(message)
-          message.to_xml(skip_instruct: true, root: 'Message')
+          options = {
+            'AttrPrefix' => true,
+            'RootName' => 'Message',
+            'XmlDeclaration' => false,
+            'KeepRoot' => true,
+            'GroupTags' => { 'Items' => 'Item', 'Inventories' => 'Inventory' }
+          }
+          XmlSimple.xml_out(message, options)
         end
       end
     end
