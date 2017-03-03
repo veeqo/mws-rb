@@ -29,4 +29,5 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport', '>= 3.0'
   s.add_dependency 'addressable',   '~> 2.3'
   s.add_dependency 'builder',       '~> 3.1'
+  s.add_dependency 'xml-simple',    '~> 1.1'
 end
