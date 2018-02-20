@@ -32,7 +32,7 @@ Version 0.0.5 (May 29, 2015)
 * Fix signature generation
 * Add support text based feeds
 
-Version 0.0.6 (Next release)
+Version 0.0.6
 -----------------------------
 
 * Add missing specs
@@ -41,3 +41,13 @@ Version 0.0.6 (Next release)
 * Fix query action SKU|ASIN capitalization
 * Default connection params to ENV variables
 * Enforce ruby guidelines using Rubocop
+
+Version 0.1.0
+-----------------------------
+
+* Add support of MerchantFulfillment
+* Amend building messages array: support nested hash
+* Relax ActiveSupport gem dependancy
+* Relax HTTParty gem dependancy
+* Rename gem
+
