@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'vcr',           '~> 3.0'
   s.add_development_dependency 'webmock',       '~> 1.22'
 
-  s.add_dependency 'httparty',      '~> 0.13'
+  s.add_dependency 'httparty',      '>= 0.13'
   s.add_dependency 'nokogiri',      '~> 1.6'
   s.add_dependency 'activesupport', '>= 3.0'
   s.add_dependency 'addressable',   '~> 2.3'
