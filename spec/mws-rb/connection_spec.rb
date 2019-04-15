@@ -60,6 +60,10 @@ describe MWS::Connection do
     it 'should return Sellers when calling .sellers' do
       expect(subject.sellers.instance_of?(MWS::API::Sellers)).to eq(true)
     end
+
+    it 'returns Subscriptions when calling .subscriptions' do
+      expect(subject.subscriptions).to be_instance_of(MWS::API::Subscriptions)
+    end
   end
 
   describe 'Validations' do
