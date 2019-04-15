@@ -53,6 +53,10 @@ module MWS
       @sellers ||= MWS::API::Sellers.new(self)
     end
 
+    def subscriptions
+      @subscriptions||= MWS::API::Subscriptions.new(self)
+    end
+
     def merchant_fulfillment
       @merchant_fulfillment ||= MWS::API::MerchantFulfilllment.new(self)
     end

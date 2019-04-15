@@ -51,6 +51,7 @@ Here is a list of all available APIS:
 - mws_api.reports
 - mws_api.products
 - mws_api.sellers
+- mws_api.subscriptions
 - mws_api.recommendations
 - mws_api.fulfillment_inventory
 - mws_api.fulfillment_inbound_shipment
@@ -70,6 +71,7 @@ You can check on the MWS documentation section all actions and params needed:
 - http://docs.developer.amazonservices.com/en_US/products/index.html
 - http://docs.developer.amazonservices.com/en_US/recommendations/index.html
 - http://docs.developer.amazonservices.com/en_US/sellers/index.html
+- http://docs.developer.amazonservices.com/en_US/subscriptions/Subscriptions_Overview.html
 - http://docs.developer.amazonservices.com/en_UK/merch_fulfill/index.html
 ## LICENSE
 
