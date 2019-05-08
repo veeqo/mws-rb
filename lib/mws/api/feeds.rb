@@ -20,7 +20,7 @@ module MWS
         call(:submit_feed, params.merge!(
                              request_params: {
                                format: :xml,
-                               headers: { 'Content-MD5' => xml_envelope.md5 },
+                               headers: { 'Content-MD5' => xml_envelope.md5, 'Content-Type' => 'text/xml' },
                                body: xml_envelope.to_s
                              }
         ))
