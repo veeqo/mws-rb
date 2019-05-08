@@ -18,6 +18,8 @@ http_interactions:
     headers:
       Content-Md5:
       - 6N4Mkq/8Ic5aJcb9BwEniw==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 200
@@ -74,6 +76,8 @@ http_interactions:
     headers:
       Content-Md5:
       - PX5rQkl65fhsCdPtOZ+zQg==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 200
@@ -130,6 +134,8 @@ http_interactions:
     headers:
       Content-Md5:
       - 8jloAkK/xNR6l8RkqR5C3Q==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 200
@@ -186,6 +192,8 @@ http_interactions:
     headers:
       Content-Md5:
       - 6XOh/zz8u3E+t4Dfq1OWGw==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 403

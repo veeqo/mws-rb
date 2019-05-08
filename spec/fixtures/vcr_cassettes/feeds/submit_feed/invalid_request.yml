@@ -9,6 +9,8 @@ http_interactions:
     headers:
       Content-Md5:
       - onDs6N53e7eIV6Clv1x4ag==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 400
@@ -58,6 +60,8 @@ http_interactions:
     headers:
       Content-Md5:
       - onDs6N53e7eIV6Clv1x4ag==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 400
@@ -107,6 +111,8 @@ http_interactions:
     headers:
       Content-Md5:
       - onDs6N53e7eIV6Clv1x4ag==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 400
@@ -156,6 +162,8 @@ http_interactions:
     headers:
       Content-Md5:
       - onDs6N53e7eIV6Clv1x4ag==
+      Content-Type:
+      - text/xml
   response:
     status:
       code: 403
