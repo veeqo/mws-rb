@@ -51,3 +51,8 @@ Version 0.1.0
 * Relax HTTParty gem dependancy
 * Rename gem
 
+Version 0.2.0
+-----------------------------
+
+* Add support of Subscriptions API
+* Explicitly pass Content-Type with XML Feeds
