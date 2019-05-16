@@ -14,4 +14,7 @@ VCR.configure do |config|
   config.filter_sensitive_data('DUMMY_AWS_SELLER_ID')  { ENV['AWS_SELLER_ID']  }
 end
 
-RSpec.configure(&:raise_errors_for_deprecations!)
+RSpec.configure do |config|
+  config.before { MWS.display_warnings = false }
+  config.raise_errors_for_deprecations!
+end
