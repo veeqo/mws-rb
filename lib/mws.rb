@@ -24,30 +24,17 @@ require_relative 'mws/api/feeds/envelope'
 require_relative 'mws/api/merchant_fulfillment'
 
 module MWS
-  @@aws_access_key_id = nil
-  @@aws_secret_access_key = nil
+  class << self
+    attr_accessor :aws_access_key_id,
+                  :aws_secret_access_key,
+                  :user_agent
 
-  def self.aws_access_key_id=(key_id)
-    @@aws_access_key_id = key_id
-  end
+    def config
+      yield self
+    end
 
-  def self.aws_access_key_id
-    @@aws_access_key_id
-  end
-
-  def self.aws_secret_access_key=(secret_key)
-    @@aws_secret_access_key = secret_key
-  end
-
-  def self.aws_secret_access_key
-    @@aws_secret_access_key
-  end
-
-  def self.new(options = {})
-    @connection = MWS::Connection.new(options)
-  end
-
-  def self.config
-    yield self
+    def new(options = {})
+      MWS::Connection.new(options)
+    end
   end
 end
