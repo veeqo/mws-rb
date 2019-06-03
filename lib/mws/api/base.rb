@@ -6,6 +6,7 @@ module MWS
 
       # TODO: Temporary solution, move to configuration
       DEFAULT_TIMEOUT = 2000
+      USER_AGENT = 'User-Agent'.freeze
 
       def initialize(connection)
         @verb ||= :get
@@ -20,7 +21,10 @@ module MWS
         when 'GET'
           HTTParty.get(query.request_uri, http_request_options)
         when 'POST'
-          HTTParty.post(query.request_uri, (params[:request_params] || {}).merge(http_request_options))
+          HTTParty.post(
+            query.request_uri,
+            params.fetch(:request_params, {}).deep_merge(http_request_options)
+          )
         end
       end
 
@@ -46,9 +50,11 @@ module MWS
       end
 
       def http_request_options
-        {
-          timeout: DEFAULT_TIMEOUT
-        }
+        @http_request_options ||= begin
+          options = { timeout: DEFAULT_TIMEOUT }
+          options.merge!(headers: { USER_AGENT => MWS.user_agent }) if MWS.user_agent.present?
+          options
+        end
       end
     end
   end
