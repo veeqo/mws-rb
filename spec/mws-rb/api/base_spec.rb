@@ -40,10 +40,112 @@ describe MWS::API::Base do
   end
 
   describe 'method_missing to call actions' do
-    before(:each) { allow(HTTParty).to receive(:get).and_return({}) }
+    before(:each) { allow(HTTParty).to receive(:get).and_return(result) }
 
-    it 'should raise exception if Actions do not contain the action name' do
-      expect { test_api.action_not_found }.to raise_error(NoMethodError)
+    context 'regular method call' do
+      let(:result) { {} }
+
+      it 'should raise exception if Actions do not contain the action name' do
+        expect { test_api.action_not_found }.to raise_error(NoMethodError)
+      end
+
+      it 'makes api call and return result if Actions contain the action name' do
+        expect(test_api.test_action).to eq result
+      end
+
+      context 'displaying warnings' do
+        subject { test_api.test_action }
+
+        before do
+          @original_display_warnings = MWS.display_warnings
+          MWS.config { |config| config.display_warnings = display_warnings }
+        end
+
+        after do
+          subject
+          MWS.config { |config| config.display_warnings = @original_display_warnings }
+        end
+
+        context 'is true' do
+          let(:display_warnings) { true }
+
+          let(:expected_deprication_warning) do
+            '[WARNING] `test_action` will have the same functionality as `test_action!` ' \
+            "in the next major version.\n"
+          end
+
+          it 'prints a deprication warning' do
+            expect { subject }
+              .to output(expected_deprication_warning)
+              .to_stderr
+          end
+        end
+
+        context 'is false' do
+          let(:display_warnings) { false }
+
+          it 'prints nothing' do
+            expect { subject }.not_to output.to_stderr
+          end
+        end
+      end
+    end
+
+    context 'bang method' do
+      context 'API response does not contain errors' do
+        let(:result) { {} }
+
+        it 'raises exception if Actions do not contain the action name' do
+          expect { test_api.action_not_found! }.to raise_error(NoMethodError)
+        end
+
+        it 'makes api call and return result if Actions contain the action name' do
+          expect(test_api.test_action!).to eq result
+        end
+      end
+
+      context 'API response contains errors' do
+        let(:result) { { 'ErrorResponse' => {} } }
+
+        it 'makes api call and returns error' do
+          expect { test_api.test_action! }
+            .to raise_error MWS::API::ResponseError, '{"ErrorResponse":{}}'
+        end
+      end
+    end
+  end
+
+  describe '#respond_to_missing?' do
+    subject { test_api.respond_to?(method_name) }
+
+    context 'Actions contain method' do
+      let(:method_name) { 'test_action' }
+
+      it { is_expected.to be true }
+    end
+
+    context 'Actions do not contain method' do
+      let(:method_name) { 'missed_test_action' }
+
+      it { is_expected.to be false }
+    end
+
+    context 'Actions contain bang method' do
+      let(:method_name) { 'test_action!' }
+
+      it { is_expected.to be true }
+    end
+
+    context 'Actions do not contain bang method' do
+      let(:method_name) { 'missed_test_action!' }
+
+      it { is_expected.to be false }
+    end
+
+    context 'regular Ruby method' do
+      let(:method_name) { 'nil?' }
+
+      it { is_expected.to be true }
     end
   end
 

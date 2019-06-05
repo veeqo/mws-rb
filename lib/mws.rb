@@ -9,6 +9,7 @@ require 'nokogiri'
 
 require_relative 'mws/query'
 require_relative 'mws/connection'
+require_relative 'mws/api'
 require_relative 'mws/api/base'
 require_relative 'mws/api/orders'
 require_relative 'mws/api/reports'
@@ -27,7 +28,8 @@ module MWS
   class << self
     attr_accessor :aws_access_key_id,
                   :aws_secret_access_key,
-                  :user_agent
+                  :user_agent,
+                  :display_warnings
 
     def config
       yield self
@@ -37,4 +39,6 @@ module MWS
       MWS::Connection.new(options)
     end
   end
+
+  self.display_warnings = true
 end

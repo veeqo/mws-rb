@@ -7,6 +7,7 @@ module MWS
       # TODO: Temporary solution, move to configuration
       DEFAULT_TIMEOUT = 2000
       USER_AGENT = 'User-Agent'.freeze
+      STRICT_MEHTHOD_ENDING = '!'.freeze
 
       def initialize(connection)
         @verb ||= :get
@@ -43,10 +44,24 @@ module MWS
 
       def method_missing(name, *args)
         if self.class::ACTIONS.include?(name)
+          print_upcoming_functionality_warning(name) if MWS.display_warnings
+
           call(name, *args)
+        elsif self.class::ACTIONS.include?(method_without_bang(name))
+          response = call(method_without_bang(name), *args)
+
+          return response unless response.key?(MWS::API::RESPONSE_ERROR_KEY)
+
+          raise MWS::API::ResponseError, response.to_json
         else
           super
         end
+      end
+
+      def respond_to_missing?(name, include_private = false)
+        self.class::ACTIONS.include?(name) ||
+          self.class::ACTIONS.include?(method_without_bang(name)) ||
+          super
       end
 
       def http_request_options
@@ -55,6 +70,17 @@ module MWS
           options.merge!(headers: { USER_AGENT => MWS.user_agent }) if MWS.user_agent.present?
           options
         end
+      end
+
+      private
+
+      def method_without_bang(name)
+        name.to_s.chomp(STRICT_MEHTHOD_ENDING).to_sym
+      end
+
+      def print_upcoming_functionality_warning(name)
+        warn "[WARNING] `#{name}` will have the same functionality as `#{name}!` " \
+              "in the next major version."
       end
     end
   end
