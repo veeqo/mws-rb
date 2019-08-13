@@ -31,7 +31,7 @@ module MWS
     end
 
     def canonical
-      canonical = [@verb.to_s.upcase, @host.downcase, @uri, build_query].join("\n")
+      [@verb.to_s.upcase, @host.downcase, @uri, build_query].join("\n")
     end
 
     def signature
@@ -40,17 +40,7 @@ module MWS
     end
 
     def build_query(signature = nil)
-      query = {
-        'AWSAccessKeyId' => @aws_access_key_id,
-        'Action' => @action,
-        'SellerId' => @seller_id,
-        'SignatureMethod' => @signature_method,
-        'SignatureVersion' => @signature_version,
-        'Timestamp' => @timestamp,
-        'Version' => @version
-      }
-      query['MWSAuthToken'] = @mws_auth_token if @mws_auth_token
-      query['Signature'] = signature if signature
+      query = base_query(signature)
 
       params = Helpers.camelize_keys(@params || {})
       params = Helpers.make_structured_lists(params)
@@ -99,6 +89,23 @@ module MWS
           end
         end.reduce({}, :merge)
       end
+    end
+
+    protected
+
+    def base_query(signature = nil)
+      query = {
+        'AWSAccessKeyId' => @aws_access_key_id,
+        'Action' => @action,
+        'SellerId' => @seller_id,
+        'SignatureMethod' => @signature_method,
+        'SignatureVersion' => @signature_version,
+        'Timestamp' => @timestamp,
+        'Version' => @version
+      }
+      query['MWSAuthToken'] = @mws_auth_token if @mws_auth_token
+      query['Signature'] = signature if signature
+      query
     end
   end
 end
