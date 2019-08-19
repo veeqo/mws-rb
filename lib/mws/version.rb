@@ -1,4 +1,4 @@
 # Version
 module MWS
-  VERSION = '0.2.0'.freeze
+  VERSION = '0.2.1'.freeze
 end

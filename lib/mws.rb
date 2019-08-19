@@ -9,6 +9,7 @@ require 'nokogiri'
 
 require_relative 'mws/query'
 require_relative 'mws/connection'
+require_relative 'mws/auth'
 require_relative 'mws/api/base'
 require_relative 'mws/api/orders'
 require_relative 'mws/api/reports'
@@ -35,6 +36,10 @@ module MWS
 
     def new(options = {})
       MWS::Connection.new(options)
+    end
+
+    def auth(options = {})
+      MWS::Auth.new(options)
     end
   end
 end

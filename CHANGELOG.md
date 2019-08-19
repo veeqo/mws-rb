@@ -56,3 +56,8 @@ Version 0.2.0
 
 * Add support of Subscriptions API
 * Explicitly pass Content-Type with XML Feeds
+
+Version 0.2.1
+-----------------------------
+
+* Add support of generating authentication url through MWS.auth
