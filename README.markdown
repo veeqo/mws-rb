@@ -18,6 +18,8 @@ Using in a simple ruby file:
 
 ## Initialization
 
+###### MWS API
+
 ```ruby
     mws_api = MWS.new(
       host: "mws-eu.amazonservices.com",
@@ -27,7 +29,22 @@ Using in a simple ruby file:
     )
 ```
 
+###### MWS AUTH
+
+```ruby
+    mws_auth = MWS.auth(
+      aws_access_key_id: "Your access key id",
+      aws_secret_access_key: "Your secret access key",
+      app_instance_id: "Your application instance id",
+      host: "sellercentral.amazon.co.uk", # or another marketplace
+      uri: "/gp/mws/registration/register.html",
+      return_path: "/auth/oauth_callback?sessionID=your_session_id"
+    )
+```
+
 ## Using
+
+###### MWS API
 
 To access the apis you can use:
 
@@ -57,6 +74,38 @@ Here is a list of all available APIS:
 - mws_api.fulfillment_inbound_shipment
 - mws_api.fulfillment_outbound_shipment
 - mws_api.merchant_fulfillment
+
+###### MWS AUTH
+
+To get authorization url for your marketplace:
+```ruby
+     mws_auth.authorization_url
+```
+
+And after successful authentication on Amazon side it will redirect you to your callback url:
+```ruby
+    POST www.your-domain.com/auth/oauth_callback
+```
+with params:
+```ruby
+    params = {
+      'sessionID': 'your_session_id', # custom param
+      'Merchant': 'Merchant ID',
+      'Marketplace': 'Merchant Marketplace',
+      'MWSAuthToken': 'MWS authorization token',
+      'SignatureMethod': 'HmacSHA256',
+      'SignatureVersion': '2',
+      'Signature': 'Signature generated from your side and have sent to Amazon',
+      'AWSAccessKeyId': 'Amazon access key for the marketplace'
+    }
+```
+
+**NOTE:** You should definitely check for matching `Signature` from parameters with local one:
+```ruby
+    def oauth_callback_handler
+      raise Exception if params[:Signature] != mws_auth.signature
+    end
+```
 
 ## API docs/actions/params
 
