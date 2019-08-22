@@ -16,6 +16,10 @@ module MWS
       request_uri
     end
 
+    def valid_signature?(signature:, signed_string:)
+      signature == encode_canonical(signed_string.gsub(/\r/, ''))
+    end
+
     protected
 
     def required_params

@@ -9,7 +9,7 @@ describe MWS::Auth do
       host: 'sellercentral.amazon.co.uk',
       uri: '/gp/mws/registration/register.html',
       aws_access_key_id: 'key',
-      aws_secret_access_key: 'secret',
+      aws_secret_access_key: 'aaa',
       app_instance_id: instance_id,
       return_path: '/auth/oauth_callback?sessionId=123'
     }
@@ -43,16 +43,31 @@ describe MWS::Auth do
   end
 
   describe '#signature' do
-    let(:signature) { 'NLOMqhXYN0zsBbYZciGqSdkpma/lUcCIUuQyX2HhLjg=' }
+    let(:signature) { 'tZWw0DUGt4z8QFA25oB1xbxc9BpDrviFvGL88ImP6Mg=' }
+
     it 'generates a valid signature' do
       expect(subject.signature).to eq(signature)
     end
   end
 
-  describe '#url' do
+  describe '#valid_signature?' do
+    let(:signature) { 'nHcl/hJNjflFwcTKyd6eYQrjTYGHhF2bSvwkmGgOTJQ=' }
+    let(:signed_string) { "POST\r\nhttps://www.vendor.com/mwsApp1\r\n/orders/listRecentOrders.jsp?sessionId=123\nAWSAccessKeyId=AKIAFJPPO5KLY6G4XO7Q&MWSAuthToken=amzn.mws.1234&Marketplace=ATVPDKIKX0DER&Merchant=A047950713KM6AGKQCBRD&SignatureMethod=HmacSHA256&SignatureVersion=2" }
+
+    it 'returns true' do
+      expect(
+        subject.valid_signature?(
+          signature: signature,
+          signed_string: signed_string
+        )
+      ).to be_truthy
+    end
+  end
+
+  describe '#authorization_url' do
     let(:auth_url) do
       'https://sellercentral.amazon.co.uk/gp/mws/registration/register.html?'\
-      'AWSAccessKeyId=key&Signature=NLOMqhXYN0zsBbYZciGqSdkpma%2FlUcCIUuQyX2HhLjg%3D&'\
+      'AWSAccessKeyId=key&Signature=tZWw0DUGt4z8QFA25oB1xbxc9BpDrviFvGL88ImP6Mg%3D&'\
       'SignatureMethod=HmacSHA256&SignatureVersion=2&id=instance_id&'\
       'returnPathAndParameters=%2Fauth%2Foauth_callback%3FsessionId%3D123'
     end

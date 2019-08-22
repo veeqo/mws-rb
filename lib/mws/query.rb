@@ -35,8 +35,7 @@ module MWS
     end
 
     def signature
-      digest = OpenSSL::Digest.new('sha256')
-      Base64.encode64(OpenSSL::HMAC.digest(digest, aws_secret_access_key, canonical)).strip
+      encode_canonical(canonical)
     end
 
     def build_query(signature = nil)
@@ -106,6 +105,11 @@ module MWS
       query['MWSAuthToken'] = @mws_auth_token if @mws_auth_token
       query['Signature'] = signature if signature
       query
+    end
+
+    def encode_canonical(canonical_str)
+      digest = OpenSSL::Digest.new('sha256')
+      Base64.encode64(OpenSSL::HMAC.digest(digest, aws_secret_access_key, canonical_str)).strip
     end
   end
 end
