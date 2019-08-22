@@ -96,15 +96,14 @@ with params:
       'SignatureMethod': 'HmacSHA256',
       'SignatureVersion': '2',
       'Signature': 'Signature generated from your side and have sent to Amazon',
-      'AWSAccessKeyId': 'Amazon access key for the marketplace'
+      'AWSAccessKeyId': 'Amazon access key for the marketplace',
+      'SignedString': "POST\nhttps://www.vendor.com/mwsApp1\n/orders/listRecentOrders.jsp?sessionId=123\nAWSAccessKeyId=AKIAFJPPO5KLY6G4XO7Q&MWSAuthToken=mzn.mws.1234&Marketplace=ATVPDKIKX0DER&Merchant=A047950713KM6AGKQCBRD&SignatureMethod=HmacSHA256&SignatureVersion=2"
     }
 ```
 
-**NOTE:** You should definitely check for matching `Signature` from parameters with local one:
+**NOTE:** Before saving the credentials to your DB check the validity of the received signature:
 ```ruby
-    def oauth_callback_handler
-      raise Exception if params[:Signature] != mws_auth.signature
-    end
+mws_auth.valid_signature?(signature: params[:Signature], signed_string: params[:SignedString])
 ```
 
 ## API docs/actions/params
