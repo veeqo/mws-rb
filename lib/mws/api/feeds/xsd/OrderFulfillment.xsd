@@ -53,7 +53,7 @@
                             </xsd:choice>
                             <xsd:element name="MerchantFulfillmentItemID" type="IDNumber" minOccurs="0"/>
                             <xsd:element name="Quantity" type="xsd:positiveInteger" minOccurs="0"/>
-                             <xsd:element name="TransparencyCode" type="xsd:string" minOccurs="0" maxOccurs="10"/>
+                            <xsd:element name="TransparencyCode" type="xsd:string" minOccurs="0" maxOccurs="10"/>
                         </xsd:sequence>
                     </xsd:complexType>
                 </xsd:element>

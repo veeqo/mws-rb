@@ -18,9 +18,10 @@ describe MWS::API::Feeds::Envelope, 'built _POST_ORDER_FULFILLMENT_DATA_ feed' d
               'ShippingMethod' => 'TruckDelivery',
               'ShipperTrackingNumber' => '123456789'
             },
+            'CODCollectionMethod' => 'DirectPayment',
             'Items' => [
-              { 'AmazonOrderItemCode' => '13131313131313', 'Quantity' => '1' },
-              { 'AmazonOrderItemCode' => '13131313131313', 'Quantity' => '2' }
+              { 'AmazonOrderItemCode' => '13131313131313', 'MerchantFulfillmentItemID' => '12345678912345', 'Quantity' => '1', 'TransparencyCode' => '123456789011' },
+              { 'AmazonOrderItemCode' => '13131313131313', 'MerchantFulfillmentItemID' => '12345678911111', 'Quantity' => '2', 'TransparencyCode' => '123456789012' }
             ],
             'ShipFromAddress' => {
               'Name' => 'Berlin Address',
@@ -40,7 +41,7 @@ describe MWS::API::Feeds::Envelope, 'built _POST_ORDER_FULFILLMENT_DATA_ feed' d
 
     it 'contains passed data' do
       expect(subject.to_s.squish).to include(
-        "<AmazonEnvelope><Header><DocumentVersion>1.01</DocumentVersion><MerchantIdentifier/></Header><MessageType>OrderFulfillment</MessageType><PurgeAndReplace>false</PurgeAndReplace><Message> <MessageID>123123123</MessageID> <OrderFulfillment> <AmazonOrderID>123-3333333-4444444</AmazonOrderID> <FulfillmentDate>2020-12-08T15:23:47Z</FulfillmentDate> <FulfillmentData> <CarrierName>Other</CarrierName> <ShippingMethod>TruckDelivery</ShippingMethod> <ShipperTrackingNumber>123456789</ShipperTrackingNumber> </FulfillmentData> <Item> <AmazonOrderItemCode>13131313131313</AmazonOrderItemCode> <Quantity>1</Quantity> </Item> <Item> <AmazonOrderItemCode>13131313131313</AmazonOrderItemCode> <Quantity>2</Quantity> </Item> <ShipFromAddress> <Name>Berlin Address</Name> <AddressFieldOne>572 Brett Knolls</AddressFieldOne> <AddressFieldTwo>Apt. 064</AddressFieldTwo> <City>West Antoinebury</City> <StateOrRegion>Kent</StateOrRegion> <PostalCode>GA6 8HS</PostalCode> <CountryCode>GB</CountryCode> </ShipFromAddress> </OrderFulfillment> </Message> </AmazonEnvelope>"
+        "<AmazonEnvelope><Header><DocumentVersion>1.01</DocumentVersion><MerchantIdentifier/></Header><MessageType>OrderFulfillment</MessageType><PurgeAndReplace>false</PurgeAndReplace><Message> <MessageID>123123123</MessageID> <OrderFulfillment> <AmazonOrderID>123-3333333-4444444</AmazonOrderID> <FulfillmentDate>2020-12-08T15:23:47Z</FulfillmentDate> <FulfillmentData> <CarrierName>Other</CarrierName> <ShippingMethod>TruckDelivery</ShippingMethod> <ShipperTrackingNumber>123456789</ShipperTrackingNumber> </FulfillmentData> <CODCollectionMethod>DirectPayment</CODCollectionMethod> <Item> <AmazonOrderItemCode>13131313131313</AmazonOrderItemCode> <MerchantFulfillmentItemID>12345678912345</MerchantFulfillmentItemID> <Quantity>1</Quantity> <TransparencyCode>123456789011</TransparencyCode> </Item> <Item> <AmazonOrderItemCode>13131313131313</AmazonOrderItemCode> <MerchantFulfillmentItemID>12345678911111</MerchantFulfillmentItemID> <Quantity>2</Quantity> <TransparencyCode>123456789012</TransparencyCode> </Item> <ShipFromAddress> <Name>Berlin Address</Name> <AddressFieldOne>572 Brett Knolls</AddressFieldOne> <AddressFieldTwo>Apt. 064</AddressFieldTwo> <City>West Antoinebury</City> <StateOrRegion>Kent</StateOrRegion> <PostalCode>GA6 8HS</PostalCode> <CountryCode>GB</CountryCode> </ShipFromAddress> </OrderFulfillment> </Message> </AmazonEnvelope>"
       )
     end
   end
