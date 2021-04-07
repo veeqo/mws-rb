@@ -85,4 +85,29 @@ describe MWS::API::Feeds do
       end
     end
   end
+
+  describe '#carrier_supported?' do
+    let(:mws_api) do
+      MWS.new(
+        host: 'mws-eu.amazonservices.com',
+        aws_access_key_id: ENV['AWS_ACCESS_KEY'] || 'DUMMY_AWS_ACCESS_KEY',
+        aws_secret_access_key: ENV['AWS_SECRET_KEY'] || 'DUMMY_AWS_SECRET_KEY',
+        seller_id: ENV['AWS_SELLER_ID'] || 'DUMMY_AWS_SELLER_ID'
+      )
+    end
+
+    subject { mws_api.feeds.carrier_supported?(carrier_code) }
+
+    context 'when carrier code is supported' do
+      let(:carrier_code) { 'Royal Mail' }
+
+      it { is_expected.to be_truthy }
+    end
+
+    context 'when carrier code is not supported' do
+      let(:carrier_code) { 'Wrong DHL' }
+
+      it { is_expected.to be_falsey }
+    end
+  end
 end
