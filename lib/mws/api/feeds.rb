@@ -25,6 +25,18 @@ module MWS
                              }
         ))
       end
+
+      def carrier_supported?(carrier_code)
+        xml = "<CarrierCode>#{carrier_code}</CarrierCode>"
+        errors = base_xsd.validate(Nokogiri::XML(xml))
+        errors.blank?
+      end
+
+      protected
+
+      def base_xsd
+        Nokogiri::XML::Schema(File.open(File.join(MWS::API::Feeds::XSD_PATH, 'amzn-base.xsd')))
+      end
     end
   end
 end
