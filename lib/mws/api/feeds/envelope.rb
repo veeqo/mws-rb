@@ -6,12 +6,14 @@ module MWS
       # Envelope
       class Envelope
         def initialize(params = {})
+          @params = params
+
           if params[:type].to_s == 'text'
             @type = :text
             @envelope = params[:message]
           else
             @type = :xml
-            @envelope = build_envelope(params)
+            @envelope = build_envelope
           end
           validate! unless params[:skip_schema_validation] || @type == :text
         end
@@ -22,6 +24,20 @@ module MWS
 
         def validate!
           fail "Invalid XML:\n" + errors.join("\n") unless valid?
+          fail 'Invalid XML:\n' + 'Invalid CarrierCode and CarrierName combination!' unless valid_carrier_data?
+        end
+
+        def valid_carrier_data?
+          return true unless @params[:message_type].to_s == "order_fulfillment"
+
+          messages_array(@params).all? do |message|
+            fulfillment_data = message['OrderFulfillment']['FulfillmentData']
+            if fulfillment_data['CarrierCode'] == 'Other'
+              fulfillment_data.key?('CarrierName')
+            else
+              !fulfillment_data.key?('CarrierName')
+            end
+          end
         end
 
         def md5
@@ -56,16 +72,16 @@ module MWS
         private
 
         # rubocop:disable all
-        def build_envelope(params = {})
+        def build_envelope
           xml = Builder::XmlMarkup.new
           xml.AmazonEnvelope do
             xml.Header do
               xml.DocumentVersion '1.01'
-              xml.MerchantIdentifier params[:merchant_id]
+              xml.MerchantIdentifier @params[:merchant_id]
             end
-            xml.MessageType params[:message_type].to_s.camelize
-            xml.PurgeAndReplace params[:purge_and_replace] || false
-            messages_array(params).each { |message| xml << message_xml(message) }
+            xml.MessageType @params[:message_type].to_s.camelize
+            xml.PurgeAndReplace @params[:purge_and_replace] || false
+            messages_array(@params).each { |message| xml << message_xml(message) }
           end; xml
         end
 
