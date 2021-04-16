@@ -97,7 +97,7 @@ describe MWS::API::Feeds::Envelope, 'built _POST_ORDER_FULFILLMENT_DATA_ feed' d
         }
       end
 
-      it { expect { subject }.to raise_error(RuntimeError, /Invalid CarrierCode and CarrierName combination!/i) }
+      it { expect(subject).to be_valid }
     end
 
     context 'when carrier code with value "Other" passed without any carrier name' do
@@ -109,7 +109,7 @@ describe MWS::API::Feeds::Envelope, 'built _POST_ORDER_FULFILLMENT_DATA_ feed' d
         }
       end
 
-      it { expect { subject }.to raise_error(RuntimeError, /Invalid CarrierCode and CarrierName combination!/i) }
+      it { expect(subject).to be_valid }
     end
 
     context 'when only carrier name is passed' do
@@ -121,7 +121,18 @@ describe MWS::API::Feeds::Envelope, 'built _POST_ORDER_FULFILLMENT_DATA_ feed' d
         }
       end
 
-      it { expect { subject }.to raise_error(RuntimeError, /Invalid CarrierCode and CarrierName combination!/i) }
+      it { expect(subject).to be_valid }
+    end
+
+    context 'when both carrier code and carrier name are not passed' do
+      let(:fulfillment_data) do
+        {
+          'ShippingMethod' => 'TruckDelivery',
+          'ShipperTrackingNumber' => '123456789'
+        }
+      end
+
+      it { expect { subject }.to raise_error(RuntimeError, /Invalid XML/i) }
     end
 
     context 'when message type is not `order_fulfillment`' do
