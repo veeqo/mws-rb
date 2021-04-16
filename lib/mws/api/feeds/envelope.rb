@@ -24,7 +24,7 @@ module MWS
 
         def validate!
           fail "Invalid XML:\n" + errors.join("\n") unless valid?
-          fail 'Invalid XML:\n' + 'Invalid CarrierCode and CarrierName combination!' unless valid_carrier_data?
+          # fail 'Invalid XML:\n' + 'Invalid CarrierCode and CarrierName combination!' unless valid_carrier_data?
         end
 
         def valid_carrier_data?

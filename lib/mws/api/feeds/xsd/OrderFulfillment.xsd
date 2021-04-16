@@ -26,7 +26,7 @@
                 <xsd:element name="FulfillmentData" minOccurs="0">
                     <xsd:complexType>
                         <xsd:sequence>
-                            <xsd:choice maxOccurs="unbounded" minOccurs="0">
+                            <xsd:choice maxOccurs="unbounded">
                                 <xsd:element ref="CarrierCode"/>
                                 <xsd:element name="CarrierName" type="String"/>
                             </xsd:choice>
