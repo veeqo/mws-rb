@@ -56,7 +56,7 @@ module MWS
       def self.escape_date_time_params(params = {})
         params.map do |key, value|
           case value.class.name
-          when 'Time', 'Date', 'DateTime'
+          when 'Time', 'Date', 'DateTime', 'ActiveSupport::TimeWithZone'
             { key => value.iso8601 }
           when 'Hash'
             { key => escape_date_time_params(value) }
